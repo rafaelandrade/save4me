@@ -1,0 +1,12 @@
+version: '3'
+services:
+  app:
+    build: .
+    container_name: be_boilerplate
+    restart: always
+    volumes:
+      - .:/usr/app
+      - /usr/app/node_modules
+    ports:
+      - '5004:5004'
+    command: 'npm run staging'
