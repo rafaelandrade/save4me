@@ -1,0 +1,19 @@
+{
+    "manifest_version": 3,
+    "name": "save4me",
+    "short_name": "save4me",
+    "version": "1.0.0",
+    "description": "Chrome extension made with NextJS",
+    "icons": {},
+    "permissions": [],
+    "content_scripts": [
+      {
+        "matches": ["https://*/*", "http://*/*"],
+        "js": ["inject.js"]
+      }
+    ],
+    "host_permissions": ["<all_urls>"],
+    "action": {
+      "default_popup": "index.html"
+    }
+  }
