@@ -1,6 +1,13 @@
 {
+  "private": true,
+  "workspaces": [
+    "backend"
+  ],
+  "engines": {
+    "node": "16.14.0"
+  },
   "scripts": {
-    "lint": "eslint backend/src/* --fix"
+    "lint": "eslint backend/src/* --fix",
   },
   "devDependencies": {
     "eslint": "^8.11.0",
