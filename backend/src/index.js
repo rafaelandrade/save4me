@@ -23,4 +23,4 @@ app.use(routes)
 
 app.use(Sentry.Handlers.errorHandler())
 
-app.listen(PORT, () => logger.info('Hello World!'))
+app.listen(PORT, () => logger.info(`We are live on ${PORT}`))

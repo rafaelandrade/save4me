@@ -3,14 +3,18 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "engines": {
+    "node": "16.14.0"
+  },
   "scripts": {
     "dev": "npx prisma generate && nodemon src/index.js",
     "start": "npx prisma generate && node src/index.js",
-    "test": "jest"
+    "test": "jest --coverage --silent --forceExit --detectOpenHandles"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "jest": "27.5.1",
     "nodemon": "^2.0.15"
   },
   "dependencies": {
