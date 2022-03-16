@@ -1,0 +1,11 @@
+{
+  "scripts": {
+    "lint": "eslint backend/src/* --fix"
+  },
+  "devDependencies": {
+    "eslint": "^8.11.0",
+    "husky": "^7.0.4",    
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.25.4"
+  }
+}
