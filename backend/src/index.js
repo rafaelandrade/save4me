@@ -4,7 +4,6 @@ const express = require('express')
 const cors = require('cors')
 const Sentry = require('@sentry/node')
 
-const routes = require('./routes')
 const logger = require('./services/logger')
 
 const app = express()
@@ -19,7 +18,7 @@ app.use(cors({ origin: '*' }))
 
 app.use(Sentry.Handlers.requestHandler())
 
-app.use(routes)
+require('./routes')(app)
 
 app.use(Sentry.Handlers.errorHandler())
 

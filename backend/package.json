@@ -15,13 +15,15 @@
   "license": "ISC",
   "devDependencies": {
     "jest": "27.5.1",
-    "nodemon": "^2.0.15"
+    "nodemon": "2.0.15",
+    "supertest": "6.2.2"
   },
   "dependencies": {
     "@prisma/client": "^3.11.0",
     "@sentry/node": "^6.18.2",
     "cors": "^2.8.5",
     "dotenv": "^16.0.0",
+    "errors-stack": "^1.1.1",
     "express": "^4.17.3"
   }
 }

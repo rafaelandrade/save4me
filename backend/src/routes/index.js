@@ -1,5 +1,3 @@
-const { Router } = require('express')
-
-const router = Router()
-
-module.exports = router
+module.exports = (app) => {
+  require('./v1')(app)
+}
