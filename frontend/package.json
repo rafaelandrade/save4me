@@ -1,6 +1,6 @@
 {
   "name": "frontend",
-  "version": "0.1.0",
+  "version": "0.0.0.1",
   "private": true,
   "scripts": {
     "dev": "npm-watch",
@@ -12,7 +12,8 @@
     "cypress:headless": "cypress run",
     "e2e": "start-server-and-test start http://localhost:3000 cypress",
     "e2e:headless": "start-server-and-test start http://localhost:3000 cypress:headless",
-    "lint": "next lint"
+    "lint": "next lint",
+    "zip": "zip -r chrome-extension.zip ./out"
   },
   "author": "rafaelandrade",
   "dependencies": {
