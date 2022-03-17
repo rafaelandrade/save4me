@@ -6,8 +6,8 @@ on:
   pull_request:
     types: [opened, synchronize, reopened]
 jobs:
-  codecov backend:
-    name: Codecov Workflow
+  codecov-backend:
+    name: Codecov Backend
     runs-on: ubuntu-18.04
 
     steps:
@@ -31,8 +31,8 @@ jobs:
           fail_ci_if_error: true
           verbose: true
 
-  codecov frontend:
-    name: Codecov Workflow
+  codecov-frontend:
+    name: Codecov Frontend
     runs-on: ubuntu-18.04
 
     steps:
