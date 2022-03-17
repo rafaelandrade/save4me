@@ -15,7 +15,11 @@
     "lint": "next lint",
     "zip": "zip -r chrome-extension.zip ./out"
   },
-  "author": "rafaelandrade",
+  "contributors": [
+    "Rafael Andrade <rafasouza@protonmail.com>",
+    "João Augusto <augustoj311@gmail.com>",
+    "Mateus <coutinhommwh@gmail.com>"
+  ],
   "dependencies": {
     "@babel/runtime": "^7.17.7",
     "next": "12.1.0",

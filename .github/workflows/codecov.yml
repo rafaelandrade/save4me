@@ -40,7 +40,7 @@ jobs:
     
       - name: Install dev dependencies
         run: yarn workspace frontend install
-        
+
       - name: Run the frontend-tests
         run: yarn workspace frontend build:next && yarn workspace frontend e2e:headless
 

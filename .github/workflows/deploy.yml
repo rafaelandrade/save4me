@@ -14,11 +14,10 @@ jobs:
     - uses: actions/checkout@v1
     - uses: actions/setup-node@v1
       with:
-        node-version: 12
+        node-version: 16
     - name: Build
       run: |
-        npm ci
-        npm run build
+        yarn zip
     - name: Upload & release
       uses: mnao305/chrome-extension-upload@2.2.0
       with:

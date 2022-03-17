@@ -4,6 +4,11 @@
     "backend",
     "frontend"
   ],
+  "contributors": [
+    "Rafael Andrade <rafasouza@protonmail.com>",
+    "João Augusto <augustoj311@gmail.com>",
+    "Mateus <coutinhommwh@gmail.com>"
+  ],
   "engines": {
     "node": "16.14.0"
   },
