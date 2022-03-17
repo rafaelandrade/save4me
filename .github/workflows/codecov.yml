@@ -16,7 +16,7 @@ jobs:
           fetch-depth: 0
     
       - name: Install dev dependencies
-        run: yarn install
+        run: yarn workspace backend install
 
       - name: Run the backend-tests
         run: yarn workspace backend run test
@@ -39,8 +39,8 @@ jobs:
           fetch-depth: 0
     
       - name: Install dev dependencies
-        run: yarn install 
-
+        run: yarn workspace frontend install
+        
       - name: Run the frontend-tests
         run: yarn workspace frontend build:next && yarn workspace frontend e2e:headless
 
