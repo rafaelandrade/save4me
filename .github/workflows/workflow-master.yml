@@ -18,8 +18,6 @@ jobs:
       - name: Install dev dependencies
         run: yarn install
 
-      - uses: docker-practice/actions-setup-docker@master
-
       - name: Run the backend-tests
         run: yarn workspace backend run test
 
@@ -42,8 +40,6 @@ jobs:
     
       - name: Install dev dependencies
         run: yarn install 
-
-      - uses: docker-practice/actions-setup-docker@master
 
       - name: Run the frontend-tests
         run: yarn workspace frontend build:next && yarn workspace frontend e2e:headless
