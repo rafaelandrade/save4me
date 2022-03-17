@@ -6,14 +6,14 @@ on:
   pull_request:
     types: [opened, synchronize, reopened]
 jobs:
-  codecov:
+  codecov backend:
     name: Codecov Workflow
     runs-on: ubuntu-18.04
 
     steps:
       - uses: actions/checkout@v2
         with:
-          fetch-depth: 0 # Shallow clones should be disabled for a better relevancy of analysis
+          fetch-depth: 0
     
       - name: Install dev dependencies
         run: yarn install
@@ -26,7 +26,33 @@ jobs:
       - uses: codecov/codecov-action@v2
         with:
           token: ${{ secrets.CODECOV_TOKEN }} # not required for public repos
-          flags: unittests # optional
-          name: codecov-umbrella # optional
-          fail_ci_if_error: true # optional (default = false)
-          verbose: true # optional (default = false)
+          flags: unittests
+          name: codecov-umbrella
+          fail_ci_if_error: true
+          verbose: true
+
+  codecov frontend:
+    name: Codecov Workflow
+    runs-on: ubuntu-18.04
+
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+    
+      - name: Install dev dependencies
+        run: yarn install 
+
+      - uses: docker-practice/actions-setup-docker@master
+
+      - name: Run the frontend-tests
+        run: yarn workspace frontend e2e:headless
+
+      - uses: codecov/codecov-action@v2
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }} # not required for public repos
+          flags: unittests
+          name: codecov-umbrella
+          fail_ci_if_error: true
+          verbose: true
+
