@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "npm-watch",
     "start": "next start",
+    "build:next": "next build",
     "build": "next build && next export && npm run lint:build",
     "lint:build": "mv out/_next out/assets && sed -i 's/\\/_next/\\/assets/g' out/**.html",
     "cypress": "cypress open",
