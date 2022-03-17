@@ -2,7 +2,7 @@
   "name": "backend",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "src/index.js",
   "engines": {
     "node": "16.14.0"
   },
@@ -12,7 +12,7 @@
     "test": "jest --coverage --silent --forceExit --detectOpenHandles",
     "lint": "eslint src/* --fix"
   },
-  "author": "",
+  "author": "rafaelandrade",
   "license": "ISC",
   "devDependencies": {
     "jest": "27.5.1",

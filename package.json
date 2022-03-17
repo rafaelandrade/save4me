@@ -1,7 +1,8 @@
 {
   "private": true,
   "workspaces": [
-    "backend"
+    "backend",
+    "frontend"
   ],
   "engines": {
     "node": "16.14.0"
