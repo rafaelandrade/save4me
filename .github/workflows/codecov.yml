@@ -1,0 +1,54 @@
+name: Coverage Workflow
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    types: [opened, synchronize, reopened]
+jobs:
+  codecov-backend:
+    name: Codecov Backend
+    runs-on: ubuntu-18.04
+
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+    
+      - name: Install dev dependencies
+        run: yarn workspace backend install
+
+      - name: Run the backend-tests
+        run: yarn workspace backend run test
+
+      - uses: codecov/codecov-action@v2
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }} # not required for public repos
+          flags: unittests
+          name: codecov-umbrella
+          fail_ci_if_error: true
+          verbose: true
+
+  codecov-frontend:
+    name: Codecov Frontend
+    runs-on: ubuntu-18.04
+
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+    
+      - name: Install dev dependencies
+        run: yarn workspace frontend install
+
+      - name: Run the frontend-tests
+        run: yarn workspace frontend build:next && yarn workspace frontend e2e:headless
+
+      - uses: codecov/codecov-action@v2
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }} # not required for public repos
+          flags: unittests
+          name: codecov-umbrella
+          fail_ci_if_error: true
+          verbose: true
+

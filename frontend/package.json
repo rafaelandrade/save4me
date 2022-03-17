@@ -1,0 +1,60 @@
+{
+  "name": "frontend",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "dev": "npm-watch",
+    "start": "next start",
+    "build:next": "next build",
+    "build": "next build && next export && npm run lint:build",
+    "lint:build": "mv out/_next out/assets && sed -i 's/\\/_next/\\/assets/g' out/**.html",
+    "cypress": "cypress open",
+    "cypress:headless": "cypress run",
+    "e2e": "start-server-and-test start http://localhost:3000 cypress",
+    "e2e:headless": "start-server-and-test start http://localhost:3000 cypress:headless",
+    "lint": "next lint",
+    "zip": "zip -r chrome-extension.zip ./out"
+  },
+  "contributors": [
+    "Rafael Andrade <rafasouza@protonmail.com>",
+    "João Augusto <augustoj311@gmail.com>",
+    "Mateus <coutinhommwh@gmail.com>"
+  ],
+  "dependencies": {
+    "@babel/runtime": "^7.17.7",
+    "next": "12.1.0",
+    "react": "17.0.2",
+    "react-dom": "17.0.2"
+  },
+  "devDependencies": {
+    "@babel/preset-react": "^7.16.7",
+    "@cypress/code-coverage": "^3.9.12",
+    "cypress": "8.7.0",
+    "eslint": "8.11.0",
+    "eslint-config-next": "12.1.0",
+    "npm-watch": "^0.11.0",
+    "start-server-and-test": "^1.14.0"
+  },
+  "watch": {
+    "build": {
+      "patterns": [
+        ".",
+        "styles/**",
+        "pages/**",
+        "public/**"
+      ],
+      "ignore": [
+        "out",
+        "node_modules",
+        ".next"
+      ],
+      "extensions": [
+        "js",
+        "json",
+        "lock",
+        "tsx",
+        "ts"
+      ]
+    }
+  }
+}

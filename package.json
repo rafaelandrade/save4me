@@ -1,12 +1,18 @@
 {
   "private": true,
   "workspaces": [
-    "backend"
+    "backend",
+    "frontend"
+  ],
+  "contributors": [
+    "Rafael Andrade <rafasouza@protonmail.com>",
+    "João Augusto <augustoj311@gmail.com>",
+    "Mateus <coutinhommwh@gmail.com>"
   ],
   "engines": {
     "node": "16.14.0"
   },
   "devDependencies": {
-    "husky": "^7.0.4" 
+    "husky": "^7.0.4"
   }
 }

@@ -1,8 +1,8 @@
 {
   "name": "backend",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "",
-  "main": "index.js",
+  "main": "src/index.js",
   "engines": {
     "node": "16.14.0"
   },
@@ -12,7 +12,11 @@
     "test": "jest --coverage --silent --forceExit --detectOpenHandles",
     "lint": "eslint src/* --fix"
   },
-  "author": "",
+  "contributors": [
+    "Rafael Andrade <rafasouza@protonmail.com>",
+    "João Augusto <augustoj311@gmail.com>",
+    "Mateus <coutinhommwh@gmail.com>"
+  ],
   "license": "ISC",
   "devDependencies": {
     "jest": "27.5.1",
