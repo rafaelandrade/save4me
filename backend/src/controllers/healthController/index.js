@@ -2,7 +2,7 @@ const { errorHandler } = require('../../helpers')
 
 /**
  * @param {*} res
- * @return {Promise<apiResponse>}
+ * @return {Promise<void>}
  */
 module.exports = async (req, res) => {
   try {

@@ -16,9 +16,9 @@ const mockExpressRes = () => {
 }
 
 /**
-   * @module
-   * @return {express}
-   */
+ * @module
+ * @return {express}
+ */
 module.exports = {
   res: mockExpressRes(),
   next: jest.fn(),
