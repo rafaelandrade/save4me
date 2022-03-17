@@ -46,7 +46,7 @@ jobs:
       - uses: docker-practice/actions-setup-docker@master
 
       - name: Run the frontend-tests
-        run: yarn workspace frontend e2e:headless
+        run: yarn workspace frontend build:next && yarn workspace frontend e2e:headless
 
       - uses: codecov/codecov-action@v2
         with:
