@@ -1,0 +1,12 @@
+{
+  "private": true,
+  "workspaces": [
+    "backend"
+  ],
+  "engines": {
+    "node": "16.14.0"
+  },
+  "devDependencies": {
+    "husky": "^7.0.4" 
+  }
+}
