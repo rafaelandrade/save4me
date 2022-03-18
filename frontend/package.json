@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "npm-watch",
+    "dev:next": "next dev",
     "start": "next start",
     "build:next": "next build",
     "build": "next build && next export && npm run lint:build",
