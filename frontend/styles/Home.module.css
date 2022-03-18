@@ -46,8 +46,6 @@
   padding: 10px;
   margin: 10px;
 
-  height: 40px;
-
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -83,7 +81,7 @@
 }
 
 .buttonAdd {
-  position: absolute;
+  position: fixed;
 
   background: #374bff;
   border-radius: 100px;
@@ -95,4 +93,10 @@
   right: 20px;
 
   border: none;
+
+  transition: 0.4s ease;
+}
+
+.buttonAdd:hover {
+  background: #0013ba;
 }
