@@ -1,7 +1,8 @@
 .container {
   background: #ffffff;
 
-  height: 100vh;
+  height: 550px;
+  width: 335px;
 }
 
 .flexWrapper {
