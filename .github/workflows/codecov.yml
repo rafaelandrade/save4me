@@ -42,7 +42,9 @@ jobs:
         run: yarn workspace frontend install
 
       - name: Run the frontend-tests
-        run: yarn workspace frontend build:next && yarn workspace frontend e2e:headless
+        run: |
+          yarn workspace frontend build:next && yarn workspace frontend test
+          yarn workspace frontend test:merge
 
       - uses: codecov/codecov-action@v2
         with:
