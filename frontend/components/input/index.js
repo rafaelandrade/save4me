@@ -8,7 +8,7 @@ export default function Input({
   shouldAnimate = true,
   subText = null,
   value,
-  onChange,
+  onChange = () => {},
 }) {
   const [focused, setFocused] = useState(false)
 

@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import Button from '../components/buttons'
+import GoogleButton from '../components/googleButton'
 import Input from '../components/input'
 import { PlusIcon } from '../public/icons/Plus'
 import { SearchIcon } from '../public/icons/Search'
@@ -22,7 +22,7 @@ export default function Home() {
         shouldAnimate={false}
         subText="Separate tags with commas (,)"
       />
-      <Button text="Texto" showBackground />
+      <GoogleButton />
       <S.ButtonAdd>
         <PlusIcon />
       </S.ButtonAdd>

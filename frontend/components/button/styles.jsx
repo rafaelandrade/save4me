@@ -1,6 +1,6 @@
 import styled, { css, keyframes } from 'styled-components'
 
-const rotate = keyframes`
+export const rotate = keyframes`
   from {
     transform: rotate(0deg);
   }
@@ -58,6 +58,8 @@ export const Container = styled.div`
       > svg {
         animation: ${rotate} 0.5s linear infinite;
       }
+
+      cursor: not-allowed;
 
       background: linear-gradient(0deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), #ffffff;
 
