@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import Input from '../components/input'
+import Loading from '../components/loading'
 import { PlusIcon } from '../public/icons/Plus'
 import { SearchIcon } from '../public/icons/Search'
 import * as S from '../styles/home'
@@ -21,6 +22,7 @@ export default function Home() {
         shouldAnimate
         subText="Separate tags with commas (,)"
       />
+      <Loading />
       <S.ButtonAdd>
         <PlusIcon />
       </S.ButtonAdd>
