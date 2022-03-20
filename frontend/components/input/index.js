@@ -1,16 +1,6 @@
 import { useState } from 'react'
 import * as S from './styles'
 
-/**
- * @param {*} [iconRight=null]
- * @param {*} [iconLeft=null]
- * @param {string} [text='']
- * @param {boolean} [shouldAnimate=true]
- * @param {string} [subText=null]
- * @param {string} value
- * @param {(string) => {}} onChange
- * @returns {*}
- */
 export default function Input({
   iconRight = null,
   iconLeft = null,
