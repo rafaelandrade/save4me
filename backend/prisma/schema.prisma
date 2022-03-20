@@ -10,9 +10,9 @@ datasource db {
 
 model LinkContent {
   id  String  @map("_id") @db.ObjectId @default(auto())
-  email String @unique
+  email String! @unique
   data Json 
-  createdAt DateTime @default(now())
+  createdAt DateTime @createdAt
   updatedAt DateTime @updatedAt
 }
 
