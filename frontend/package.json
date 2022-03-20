@@ -41,7 +41,6 @@
     "@babel/preset-react": "^7.16.7",
     "@cypress/code-coverage": "^3.9.12",
     "cypress": "8.7.0",
-    "cypress-jest-coverage-merge": "^1.0.2",
     "eslint": "8.11.0",
     "eslint-config-next": "12.1.0",
     "npm-watch": "^0.11.0",
