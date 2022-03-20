@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import GoogleButton from '../components/googleButton'
 import Input from '../components/input'
 import { PlusIcon } from '../public/icons/Plus'
 import { SearchIcon } from '../public/icons/Search'
@@ -18,9 +19,10 @@ export default function Home() {
         onChange={(value) => setSearchValue(value)}
         value={searchValue}
         iconLeft={<SearchIcon />}
-        shouldAnimate
+        shouldAnimate={false}
         subText="Separate tags with commas (,)"
       />
+      <GoogleButton />
       <S.ButtonAdd>
         <PlusIcon />
       </S.ButtonAdd>
