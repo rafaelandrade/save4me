@@ -1,5 +1,5 @@
 const Sentry = require('@sentry/node')
-const { UnauthorizedError, ValidationError, BodyPropertyError } = require('errors-stack')
+const { UnauthorizedError } = require('errors-stack')
 const { errorHandler } = require('../../../src/helpers')
 const logger = require('../../../src/services/logger')
 const { mockExpress } = require('../../mocks')
@@ -50,7 +50,7 @@ describe('[errorHandler] Test case', () => {
     errorHandler({ res: undefined, error })
 
     expect(Sentry.captureException).toBeCalledTimes(1)
-    expect(logger.error).toBeCalledTimes(1)
+    expect(logger.print).toBeCalledTimes(1)
     expect(res.status).not.toBeCalled()
     expect(res.json).not.toBeCalled()
   })

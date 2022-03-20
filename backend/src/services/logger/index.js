@@ -2,9 +2,9 @@ const Coralogix = require('coralogix-logger')
 const keys = require('../../config/keys')
 
 const config = new Coralogix.LoggerConfig({
-  applicationName: keys.coralogix.applicationName,
+  applicationName: 'save4me/backend',
   privateKey: keys.coralogix.privateKey,
-  subsystemName: keys.coralogix.subsystemName,
+  subsystemName: keys.environment,
 })
 
 Coralogix.CoralogixLogger.configure(config)
@@ -55,46 +55,15 @@ class Logger {
 
   /**
    * @function
-   * @param {{event: string, message:string}}  arg
+   * @param {{ event: string, message:string, severity: 'debug' | 'verbose' | 'info' | 'warning' | 'error' | 'critical' }}  arg
    * @returns {Void}
    */
-  warn(arg) {
-    this.#addLog(arg, 'warning')
+  print({ severity, ...arg }) {
+    this.#addLog(arg, severity)
 
-    return console.warn(this.#format(arg))
-  }
+    if (severity === 'warning') return console.warn(this.#format(arg))
 
-  /**
-   * @function
-   * @param {{event: string, message:string}}  arg
-   * @returns {Void}
-   */
-  error(arg) {
-    this.#addLog(arg, 'error')
-
-    return console.error(this.#format(arg))
-  }
-
-  /**
-   * @function
-   * @param {{event: string, message:string}}  arg
-   * @returns {Void}
-   */
-  info(arg) {
-    this.#addLog(arg, 'info')
-
-    return console.info(this.#format(arg))
-  }
-
-  /**
-   * @function
-   * @param {{event: string, message:string}}  arg
-   * @returns {Void}
-   */
-  debug(arg) {
-    this.#addLog(arg, 'debug')
-
-    return console.debug(this.#format(arg))
+    return console[severity](this.#format(arg))
   }
 }
 

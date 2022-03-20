@@ -14,7 +14,7 @@ const handleUnmappedErrors = require('./handleUnmappedErrors')
 const errorHandler = ({ res, error }) => {
   const { message, status } = error
 
-  logger.error(error)
+  logger.print({ severity: 'error', event: 'errorHandler', message: error })
   const capturedException = Sentry.captureException(error)
 
   if (!res) return
