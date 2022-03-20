@@ -6,3 +6,13 @@ datasource db {
   provider = "mongodb"
   url      = env("DATABASE_URL")
 }
+
+
+model LinkContent {
+  id  String  @map("_id") @db.ObjectId @default(auto())
+  email String! @unique
+  data Json 
+  createdAt DateTime @createdAt
+  updatedAt DateTime @updatedAt
+}
+

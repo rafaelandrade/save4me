@@ -1,5 +1,5 @@
 const Sentry = require('@sentry/node')
-const { UnauthorizedError, ValidationError, BodyPropertyError } = require('errors-stack')
+const { UnauthorizedError } = require('errors-stack')
 const { errorHandler } = require('../../../src/helpers')
 const logger = require('../../../src/services/logger')
 const { mockExpress } = require('../../mocks')
@@ -47,10 +47,10 @@ describe('[errorHandler] Test case', () => {
   it('Should not call res if the value is undefined, but should capture the exception and logger error', () => {
     const error = new UnauthorizedError({ message: 'Invalid token', status: 401 })
 
-    errorHandler({ res: undefined, error })
+    errorHandler({ error })
 
     expect(Sentry.captureException).toBeCalledTimes(1)
-    expect(logger.error).toBeCalledTimes(1)
+    expect(logger.print).toBeCalledTimes(1)
     expect(res.status).not.toBeCalled()
     expect(res.json).not.toBeCalled()
   })
