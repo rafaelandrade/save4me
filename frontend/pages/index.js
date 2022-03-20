@@ -1,22 +1,19 @@
+import Input from '../components/input'
 import { PlusIcon } from '../public/icons/Plus'
 import { SearchIcon } from '../public/icons/Search'
-import styles from '../styles/Home.module.css'
+import * as S from '../styles/home'
 
 export default function Home() {
   return (
-    <div className={styles.container}>
-      <div className={styles.flexWrapper}>
+    <S.Container>
+      <S.FlexWrapper>
         <p>Save4Me</p>
-
         <img alt="avatar" src="https://avatars.dicebear.com/api/adventurer/your-custom-seed.svg" />
-      </div>
-      <div className={styles.searchBox}>
-        <SearchIcon />
-        <input placeholder="Search"></input>
-      </div>
-      <button className={styles.buttonAdd}>
+      </S.FlexWrapper>
+      <Input text="Search" iconLeft={<SearchIcon />} shouldAnimate subText="Separate tags with commas (,)" />
+      <S.ButtonAdd>
         <PlusIcon />
-      </button>
-    </div>
+      </S.ButtonAdd>
+    </S.Container>
   )
 }
