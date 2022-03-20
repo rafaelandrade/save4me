@@ -22,7 +22,7 @@ class Logger {
      * @param {Object} arg
      * @returns {String}
      */
-    this.beautify = (arg) => JSON.stringify(arg, undefined, 2)
+    this.beautify = (arg) => JSON.stringify(arg)
 
     /**
      * @function

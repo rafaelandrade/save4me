@@ -7,7 +7,7 @@ describe('[logger] Test case', () => {
     logger.print({ severity: 'error', event: 'test', message: 'Error log' })
     logger.print({ severity: 'debug', event: 'test', message: 'Debug log' })
 
-    const json = JSON.stringify({ event: 'test', message: 'Information log' }, undefined, 2)
+    const json = JSON.stringify({ event: 'test', message: 'Information log' })
 
     expect(logger.beautify({ event: 'test', message: 'Information log' })).toBe(json)
   })
