@@ -3,6 +3,7 @@ require('dotenv/config')
 const express = require('express')
 const cors = require('cors')
 const Sentry = require('@sentry/node')
+const helmet = require('helmet')
 
 const logger = require('./services/logger')
 
@@ -15,6 +16,7 @@ Sentry.init({ dsn: SENTRY_DSN })
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 app.use(cors({ origin: '*' }))
+app.use(helmet.hidePoweredBy())
 
 app.use(Sentry.Handlers.requestHandler())
 

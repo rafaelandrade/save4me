@@ -10,6 +10,7 @@ const handleUnmappedErrors = require('./handleUnmappedErrors')
  * @param {Object} data
  * @param {Object} data.error Error instance
  * @param {Object=} data.res
+ * @returns {void}
  */
 const errorHandler = ({ res, error }) => {
   const { message, status } = error

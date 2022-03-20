@@ -47,7 +47,7 @@ describe('[errorHandler] Test case', () => {
   it('Should not call res if the value is undefined, but should capture the exception and logger error', () => {
     const error = new UnauthorizedError({ message: 'Invalid token', status: 401 })
 
-    errorHandler({ res: undefined, error })
+    errorHandler({ error })
 
     expect(Sentry.captureException).toBeCalledTimes(1)
     expect(logger.print).toBeCalledTimes(1)
