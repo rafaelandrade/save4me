@@ -1,7 +1,25 @@
 import { useState } from 'react'
 import * as S from './styles'
 
-export default function Input({ iconRight, iconLeft, text = '', shouldAnimate = true, subText, value, onChange }) {
+/**
+ * @param {*} [iconRight=null]
+ * @param {*} [iconLeft=null]
+ * @param {string} [text='']
+ * @param {boolean} [shouldAnimate=true]
+ * @param {string} [subText=null]
+ * @param {string} value
+ * @param {(string) => {}} onChange
+ * @returns {*}
+ */
+export default function Input({
+  iconRight = null,
+  iconLeft = null,
+  text = '',
+  shouldAnimate = true,
+  subText = null,
+  value,
+  onChange,
+}) {
   const [focused, setFocused] = useState(false)
 
   const handleFocus = () => {
