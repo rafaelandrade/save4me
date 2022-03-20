@@ -34,6 +34,7 @@
     "cors": "^2.8.5",
     "dotenv": "^16.0.0",
     "errors-stack": "^1.1.1",
-    "express": "^4.17.3"
+    "express": "^4.17.3",
+    "helmet": "^5.0.2"
   }
 }
