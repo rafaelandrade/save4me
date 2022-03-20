@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import GoogleButton from '../components/googleButton'
 import Input from '../components/input'
 import LinkButton from '../components/linkButton'
 import Tag from '../components/tags'
@@ -19,7 +20,7 @@ export default function Home() {
         onChange={(value) => setSearchValue(value)}
         value={searchValue}
         iconLeft={<SearchIcon />}
-        shouldAnimate
+        shouldAnimate={false}
         subText="Separate tags with commas (,)"
       />
       <div style={{ display: 'flex' }}>
@@ -27,6 +28,7 @@ export default function Home() {
         <Tag text="Dev" />
       </div>
       <LinkButton text="New folder" />
+      <GoogleButton />
     </S.Container>
   )
 }

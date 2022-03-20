@@ -8,7 +8,7 @@ export default function Input({
   shouldAnimate = true,
   subText = null,
   value,
-  onChange,
+  onChange = () => {},
   error = null,
   ...props
 }) {
@@ -32,7 +32,7 @@ export default function Input({
           id="component-input"
           value={value}
           onChange={(e) => onChange(e.target.value)}
-          placeholder={(focused || !shouldAnimate) && text}
+          placeholder={focused || !shouldAnimate ? text : ''}
           onFocus={() => setFocused(true)}
           onBlur={() => setFocused(false)}
           {...props}
