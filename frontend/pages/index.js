@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import Input from '../components/input'
-import { PlusIcon } from '../public/icons/Plus'
+import LinkButton from '../components/linkButton'
+import Tag from '../components/tags'
 import { SearchIcon } from '../public/icons/Search'
 import * as S from '../styles/home'
 
@@ -21,9 +22,11 @@ export default function Home() {
         shouldAnimate
         subText="Separate tags with commas (,)"
       />
-      <S.ButtonAdd>
-        <PlusIcon />
-      </S.ButtonAdd>
+      <div style={{ display: 'flex' }}>
+        <Tag text="Engenharia" />
+        <Tag text="Dev" />
+      </div>
+      <LinkButton text="New folder" />
     </S.Container>
   )
 }
