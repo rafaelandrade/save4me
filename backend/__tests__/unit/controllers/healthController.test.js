@@ -5,12 +5,14 @@ const keys = require('../../../src/config/keys')
 jest.mock('../../../src/helpers/errorHandler')
 
 describe('[healthController] test case', () => {
-  it('Should return status 200 and error false', async () => {
+  it('Should return status 200 and error false', () => {
     const token = 'admin'
     keys.authTokens.adminToken = token
     req.headers.authorization = token
-    const response = await healthController(req, res)
-    expect(response.status).toHaveBeenCalledWith(200)
-    expect(response.json).toHaveBeenCalledWith({ error: false, message: 'OK!' })
+
+    healthController(req, res)
+
+    expect(res.status).toHaveBeenCalledWith(200)
+    expect(res.json).toHaveBeenCalledWith({ error: false, message: 'OK!' })
   })
 })

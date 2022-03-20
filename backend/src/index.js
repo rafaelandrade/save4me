@@ -22,4 +22,4 @@ require('./routes')(app)
 
 app.use(Sentry.Handlers.errorHandler())
 
-app.listen(PORT, () => logger.info(`We are live on ${PORT}`))
+app.listen(PORT, () => logger.print({ severity: 'info', event: 'AppListen', message: `We are live on ${PORT}` }))
