@@ -61,7 +61,7 @@ class Logger {
   warn(arg) {
     this.#addLog(arg, 'warning')
 
-    return console.warn(arg)
+    return console.warn(this.#format(arg))
   }
 
   /**
@@ -72,7 +72,7 @@ class Logger {
   error(arg) {
     this.#addLog(arg, 'error')
 
-    return console.error(arg)
+    return console.error(this.#format(arg))
   }
 
   /**
@@ -83,7 +83,7 @@ class Logger {
   info(arg) {
     this.#addLog(arg, 'info')
 
-    return console.info(arg)
+    return console.info(this.#format(arg))
   }
 
   /**
@@ -94,7 +94,7 @@ class Logger {
   debug(arg) {
     this.#addLog(arg, 'debug')
 
-    return console.debug(arg)
+    return console.debug(this.#format(arg))
   }
 }
 
