@@ -23,7 +23,6 @@ export default function Home() {
         shouldAnimate={false}
         subText="Separate tags with commas (,)"
       />
-      <Loading />
       <GoogleButton />
       <S.ButtonAdd>
         <PlusIcon />
