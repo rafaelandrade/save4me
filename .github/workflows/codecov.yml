@@ -29,9 +29,9 @@ jobs:
 
       - name: Run the backend-tests
         run: yarn workspace backend run test
-        with:
-          # NODE_ENV: 'test'
-          # DATABASE_URL: ${{ secrets.DATABASE_URL }}
+        # with:
+        # NODE_ENV: 'test'
+        # DATABASE_URL: ${{ secrets.DATABASE_URL }}
 
       - uses: codecov/codecov-action@v2
         with:
