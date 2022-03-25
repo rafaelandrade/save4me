@@ -6,6 +6,6 @@ module.exports = {
   testEnvironment: 'node',
   coveragePathIgnorePatterns: ['routes', 'config'],
   testMatch: ['**/**/**/*.test.js'],
-  setupFiles: ['dotenv/config'],
+  setupFiles: ['./jest.setup.js'],
   restoreMocks: true,
 }
