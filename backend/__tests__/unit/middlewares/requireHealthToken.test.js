@@ -8,7 +8,6 @@ jest.mock('../../../src/config/keys')
 describe('[requireToken] test case', () => {
   it('Should call res with status 401 and and UnauthorizedError if no auth is provided', async () => {
     keys.authTokens.adminToken = 'admin'
-    req.headers.authorization = undefined
     await requireToken(req, res, next)
 
     expect(res.status).toHaveBeenCalledWith(401)

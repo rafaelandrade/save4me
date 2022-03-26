@@ -17,6 +17,7 @@ jobs:
         node-version: 16
     - name: Build
       run: |
+        yarn build
         yarn zip
     - name: Upload & release
       uses: mnao305/chrome-extension-upload@2.2.0
