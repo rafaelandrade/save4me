@@ -9,6 +9,8 @@ export default function Input({
   subText = null,
   value,
   onChange = () => {},
+  error = null,
+  ...props
 }) {
   const [focused, setFocused] = useState(false)
 
@@ -33,10 +35,11 @@ export default function Input({
           placeholder={focused || !shouldAnimate ? text : ''}
           onFocus={() => setFocused(true)}
           onBlur={() => setFocused(false)}
+          {...props}
         />
         {iconRight}
       </S.Container>
-      {subText ? <S.SubText>{subText}</S.SubText> : null}
+      {error || subText ? <S.SubText error={!!error}>{error || subText}</S.SubText> : null}
     </>
   )
 }

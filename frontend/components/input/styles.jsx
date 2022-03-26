@@ -78,4 +78,6 @@ export const SubText = styled.p`
   font-size: 10px;
 
   color: #393939;
+
+  ${(props) => props.error && `color: #EF6C6C;`}
 `
