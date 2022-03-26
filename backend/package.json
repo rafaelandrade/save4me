@@ -30,6 +30,8 @@
   "dependencies": {
     "@prisma/client": "^3.11.0",
     "@sentry/node": "^6.18.2",
+    "axios": "^0.26.1",
+    "cheerio": "^1.0.0-rc.10",
     "coralogix-logger": "^1.1.28",
     "cors": "^2.8.5",
     "dotenv": "^16.0.0",
