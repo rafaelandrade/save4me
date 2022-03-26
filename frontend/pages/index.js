@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import GoogleButton from '../components/googleButton'
 import Input from '../components/input'
-import Loading from '../components/loading'
-import { PlusIcon } from '../public/icons/Plus'
+import LinkButton from '../components/linkButton'
+import Tag from '../components/tags'
 import { SearchIcon } from '../public/icons/Search'
 import * as S from '../styles/home'
 
@@ -23,10 +23,12 @@ export default function Home() {
         shouldAnimate={false}
         subText="Separate tags with commas (,)"
       />
+      <div style={{ display: 'flex' }}>
+        <Tag text="Engenharia" />
+        <Tag text="Dev" />
+      </div>
+      <LinkButton text="New folder" />
       <GoogleButton />
-      <S.ButtonAdd>
-        <PlusIcon />
-      </S.ButtonAdd>
     </S.Container>
   )
 }
