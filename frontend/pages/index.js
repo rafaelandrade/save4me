@@ -5,12 +5,14 @@ import List from '../components/list'
 import Loading from '../components/loading'
 import { SearchIcon } from '../public/icons/Search'
 import * as S from '../styles/home'
+import Login from './login'
 import NewLink from './newLink'
 
 export default function Home() {
   const [searchValue, setSearchValue] = useState('')
   const [showAddLink, setShowAddLink] = useState(false)
   const [loading, setLoading] = useState(false)
+  const [isLogged, setIsLogged] = useState(false)
   const [initialValue, setInitialValue] = useState('')
   const [links, setLinks] = useState([
     {
@@ -21,7 +23,7 @@ export default function Home() {
     },
     {
       img: 'https://cdn-teams-slug.flaticon.com/google.jpg',
-      title: 'Twiiter',
+      title: 'Twitter',
       url: 'https://google.com',
       tags: ['twitter'],
     },
@@ -33,6 +35,12 @@ export default function Home() {
     },
   ])
   const [searchResult, setSearchResult] = useState(null)
+
+  useEffect(() => {
+    chrome.storage.local.get(['token'], (result) => {
+      if (result.token) setIsLogged(true)
+    })
+  }, [])
 
   const handleKeyPress = useCallback(async (event) => {
     if (event.ctrlKey && event.key === 'v') {
@@ -78,6 +86,8 @@ export default function Home() {
       document.removeEventListener('keydown', handleKeyPress)
     }
   }, [handleKeyPress])
+
+  if (!isLogged) return <Login setIsLogged={setIsLogged} />
 
   return (
     <>
