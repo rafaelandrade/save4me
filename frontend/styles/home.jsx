@@ -150,6 +150,8 @@ export const FlexWrapper = styled.div`
   > p {
     text-align: center;
 
+    cursor: pointer;
+
     font-family: 'Montserrat', sans-serif;
     font-style: normal;
     font-weight: 600;

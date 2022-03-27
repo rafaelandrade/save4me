@@ -13,7 +13,6 @@ export default function Home() {
   const [showAddLink, setShowAddLink] = useState(false)
   const [loading, setLoading] = useState(false)
   const [isLogged, setIsLogged] = useState(false)
-  const [initialValue, setInitialValue] = useState('')
   const [links, setLinks] = useState([
     {
       img: 'https://cdn-teams-slug.flaticon.com/google.jpg',
@@ -45,19 +44,6 @@ export default function Home() {
   }, [])
 
   const handleKeyPress = useCallback(async (event) => {
-    if (event.ctrlKey && event.key === 'v') {
-      event.preventDefault()
-
-      navigator.permissions.query({ name: 'clipboard-read' }).then((result) => {
-        if (result.state == 'granted' || result.state == 'prompt') {
-          navigator.clipboard.readText().then((data) => {
-            setInitialValue(data)
-            setShowAddLink(true)
-          })
-        }
-      })
-    }
-
     if (event.ctrlKey && event.key === 'f') {
       event.preventDefault()
       document.getElementById('component-input')?.focus?.()
@@ -94,10 +80,10 @@ export default function Home() {
   return (
     <>
       {showAddLink ? (
-        <NewLink initialLink={initialValue} setShowAddLink={setShowAddLink} />
+        <NewLink setShowAddLink={setShowAddLink} />
       ) : (
         <S.Container>
-          <S.FlexWrapper>
+          <S.FlexWrapper onClick={() => setSearchResult(null)}>
             <p>Save4Me</p>
           </S.FlexWrapper>
           <div className="padding-wrapper">

@@ -5,9 +5,10 @@ import Tag from '../components/tags'
 import { ArrowLeftIcon } from '../public/icons/ArrowLeft'
 import { HelpIcon } from '../public/icons/Help'
 import * as S from '../styles/home'
+import validator from 'validator'
 
-export default function NewLink({ initialLink = '', setShowAddLink = () => {} }) {
-  const [link, setLink] = useState({ value: initialLink, isValid: true })
+export default function NewLink({ setShowAddLink = () => {} }) {
+  const [link, setLink] = useState({ value: '', isValid: true })
   const [title, setTitle] = useState({ value: '', isValid: true })
   const [tagsString, setTagsString] = useState({ value: '', isValid: true })
   const [tags, setTags] = useState([])
@@ -25,8 +26,7 @@ export default function NewLink({ initialLink = '', setShowAddLink = () => {} })
 
   const validateLink = () => {
     try {
-      new URL(link.value)
-      return true
+      return validator.isURL(link.value)
     } catch {
       return false
     }
@@ -106,7 +106,7 @@ export default function NewLink({ initialLink = '', setShowAddLink = () => {} })
         <div onClick={() => setShowAddLink(false)} className="back">
           <ArrowLeftIcon />
         </div>
-        <p>Save4Me</p>
+        <p onClick={() => setShowAddLink(false)}>Save4Me</p>
       </S.FlexWrapper>
       <div className="forms-wrapper">
         <Input

@@ -36,6 +36,8 @@ export const Container = styled.div`
     width: 28px;
     height: 28px;
 
+    cursor: pointer;
+
     :hover {
       border-radius: 100%;
 
