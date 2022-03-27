@@ -37,6 +37,8 @@ export default function Home() {
   const [searchResult, setSearchResult] = useState(null)
 
   useEffect(() => {
+    if (!chrome.storage) return setIsLogged(true)
+
     chrome.storage.local.get(['token'], (result) => {
       if (result.token) setIsLogged(true)
     })

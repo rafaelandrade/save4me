@@ -3116,6 +3116,11 @@ cssstyle@^2.3.0:
   dependencies:
     cssom "~0.3.6"
 
+cypress-keyboard-plugin@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/cypress-keyboard-plugin/-/cypress-keyboard-plugin-1.0.3.tgz#89df38810894873aef3447500a562ce1d54cc725"
+  integrity sha512-Cb3vJ+g4LoiQEif6XqUf9N9KexppWm/6tbMvRxNWbBMBX8r+4PuKR+PNJSvmFJrk7hP9KHZ/ffV5jyJfZafO5g==
+
 cypress@8.7.0:
   version "8.7.0"
   resolved "https://registry.npmjs.org/cypress/-/cypress-8.7.0.tgz"

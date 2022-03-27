@@ -7,7 +7,6 @@
 
 # testing
 /coverage
-frontend/public/manifest.json
 
 # next.js
 /.next/
