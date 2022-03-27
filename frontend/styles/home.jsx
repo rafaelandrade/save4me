@@ -1,5 +1,52 @@
 import styled from 'styled-components'
 
+export const ContainerLogin = styled.div`
+  background: #ffffff;
+
+  width: 328px;
+  height: 296px;
+
+  padding: 10px;
+
+  .google-login-wrapper {
+    display: flex;
+    align-items: center;
+
+    width: 100%;
+    justify-content: center;
+
+    > div {
+      width: 100%;
+    }
+  }
+
+  .title {
+    font-family: 'Montserrat', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+
+    color: #1c1c1c;
+  }
+
+  .description {
+    font-family: 'Montserrat', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+
+    color: #575757;
+
+    width: 262px;
+  }
+
+  > div {
+    margin-top: 20px;
+  }
+`
+
 export const Container = styled.div`
   background: #ffffff;
 

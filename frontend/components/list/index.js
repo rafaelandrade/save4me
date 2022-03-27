@@ -1,16 +1,12 @@
 import { SearchNotFoundIcon } from '../../public/icons/SearchNotFound'
+import Link from './link'
 import * as S from './styles'
 
-export default function List({ links = [] }) {
+export default function List({ links = [], onDelete = () => {} }) {
   return (
     <>
       {links.length ? (
-        links.map(({ img, title, url }, index) => (
-          <S.Container onDoubleClick={() => window.open(url, '_blank')} key={index}>
-            <img src={img} alt={`icon-logo-${img}`} />
-            <p>{title}</p>
-          </S.Container>
-        ))
+        links.map((link, index) => <Link key={index} {...link} onDelete={onDelete} />)
       ) : (
         <S.NotFoundContainer>
           <SearchNotFoundIcon />

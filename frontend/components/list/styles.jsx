@@ -5,15 +5,42 @@ export const Container = styled.div`
   display: flex;
   align-items: center;
 
+  padding: 0px 20px;
+
   cursor: default;
 
   text-decoration-line: none;
+
+  position: relative;
+
+  :hover {
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), #ffffff;
+  }
 
   img {
     width: 20px;
     height: 20px;
 
     border-radius: 4.62857px;
+  }
+
+  .trash-wrapper {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    position: absolute;
+    right: 2px;
+
+    width: 28px;
+    height: 28px;
+
+    :hover {
+      border-radius: 100%;
+
+      background: rgba(230, 20, 20, 0.1);
+    }
   }
 
   p {

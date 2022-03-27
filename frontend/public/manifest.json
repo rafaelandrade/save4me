@@ -22,7 +22,7 @@
       }
     }
   },
-  "permissions": ["activeTab", "scripting", "tabs"],
+  "permissions": ["activeTab", "scripting", "tabs", "storage", "clipboardRead"],
   "content_scripts": [
     {
       "matches": ["https://*/*", "http://*/*"],

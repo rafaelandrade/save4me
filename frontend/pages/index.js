@@ -101,8 +101,8 @@ export default function Home() {
             <div className="buttons-wrapper">
               <LinkButton onClick={() => setShowAddLink(true)} text="New link" />
             </div>
-            <List links={searchResult || links} />
           </div>
+          <List links={searchResult || links} />
         </S.Container>
       )}
     </>
