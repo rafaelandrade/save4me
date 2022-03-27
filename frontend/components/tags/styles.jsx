@@ -15,7 +15,7 @@ export const Container = styled.div`
     background: #0013ba;
   }
 
-  > svg {
+  > div > svg {
     margin-left: 5px;
 
     cursor: pointer;

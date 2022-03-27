@@ -17,8 +17,10 @@ const focusedStyle = css`
 `
 
 export const Container = styled.div`
-  width: 95%;
-  height: 49px;
+  ${({ height, width }) => css`
+    height: ${height};
+    width: ${width};
+  `}
 
   display: flex;
   align-items: center;

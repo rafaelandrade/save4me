@@ -8,19 +8,25 @@ export default function Input({
   shouldAnimate = true,
   subText = null,
   value,
+  width = '100%',
+  height = '49px',
   onChange = () => {},
   error = null,
+  onEnter = () => {},
+  id = 'component-input',
   ...props
 }) {
   const [focused, setFocused] = useState(false)
 
   const handleFocus = () => {
-    document.getElementById('component-input').focus()
+    document.getElementById(id).focus()
   }
 
   return (
     <>
       <S.Container
+        width={width}
+        height={height}
         placeholderColor={!shouldAnimate ? (focused ? '#a8a8a8' : '#000') : '#a8a8a8'}
         focused={focused || value}
         left={iconLeft ? 33 : 0}
@@ -29,7 +35,12 @@ export default function Input({
         {shouldAnimate ? <p onClick={handleFocus}>{text}</p> : null}
         {iconLeft}
         <input
-          id="component-input"
+          onKeyDown={(e) => {
+            if (e.key === 'Enter') {
+              onEnter(e.target.value)
+            }
+          }}
+          id={id}
           value={value}
           onChange={(e) => onChange(e.target.value)}
           placeholder={focused || !shouldAnimate ? text : ''}
