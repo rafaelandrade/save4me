@@ -36,6 +36,7 @@
     "dotenv": "^16.0.0",
     "errors-stack": "^1.1.1",
     "express": "^4.17.3",
+    "faker": "^6.6.6",
     "helmet": "^5.0.2",
     "jest-mock-extended": "^2.0.4"
   }
