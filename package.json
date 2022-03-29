@@ -10,7 +10,7 @@
     "Mateus <coutinhommwh@gmail.com>"
   ],
   "engines": {
-    "node": "16.14.0"
+    "node": "16.x"
   },
   "devDependencies": {
     "husky": "^7.0.4"
