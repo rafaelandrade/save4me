@@ -3,7 +3,7 @@ const prisma = require('../../config/prisma')
 
 /**
  * @async
- * @function create
+ * @function update
  * @param {String} email
  * @param {Object} data
  * @param {boolean} inactivate

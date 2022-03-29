@@ -4,6 +4,14 @@ const update = require('./update')
 const logger = require('../logger')
 const prisma = require('../../config/prisma')
 
+/**
+ * @async
+ * @function saveForMeService
+ * @param {String} email
+ * @param {Object} data
+ * @param {boolean} inactivate
+ * @returns {Promise<>}
+ */
 const saveForMeService = async ({ email, data, inactivate = false }) => {
   const getLinkContent = await prisma.linkContent.findUnique({ where: { email } })
 
