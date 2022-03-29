@@ -1,6 +1,14 @@
 const { BodyPropertyError } = require('errors-stack')
 const prisma = require('../../config/prisma')
 
+/**
+ * @async
+ * @function create
+ * @param {String} email
+ * @param {Object} data
+ * @param {boolean} inactivate
+ * @returns {Promise<>}
+ */
 const update = async ({ email, data, inactivate }) => {
   const linkContent = await prisma.linkContent.findUnique({ where: { email } })
 

@@ -3,6 +3,8 @@ const prisma = require('../../config/prisma')
 /**
  * @async
  * @function create
+ * @param {String} email
+ * @param {Object} data
  * @returns {Promise<>}
  */
 const create = async ({ email, data }) => {
