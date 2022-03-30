@@ -1,1 +1,1 @@
-web: yarn workspace backend start
+web: yarn start:backend
