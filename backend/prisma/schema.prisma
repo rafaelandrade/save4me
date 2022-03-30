@@ -9,9 +9,9 @@ generator client {
 }
 
 model LinkContent {
-  id  String  @id @default(auto()) @map("_id") @db.ObjectId
-  email String @unique
-  data Json[] 
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  email     String   @unique
+  data      Json[]
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
