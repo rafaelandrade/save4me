@@ -21,10 +21,10 @@ describe('[remove] Test case', () => {
 
     expect(response).not.toBeUndefined()
     expect(prisma.linkContent.update).toBeCalled()
-    expect(prisma.linkContent.update).toBeCalledWith({ where: { email: 'email@teste.com' },
-      data: { data: [
-        { id: 4, link: 'link', keywords: ['facebook'] },
-      ] } })
+    expect(prisma.linkContent.update).toBeCalledWith({
+      where: { email: 'email@teste.com' },
+      data: { data: [{ id: 4, link: 'link', keywords: ['facebook'] }] },
+    })
   })
 
   it('Should delete any data in case of send object that user dont have saved', async () => {
@@ -44,10 +44,14 @@ describe('[remove] Test case', () => {
 
     expect(response).not.toBeUndefined()
     expect(prisma.linkContent.update).toBeCalled()
-    expect(prisma.linkContent.update).toBeCalledWith({ where: { email: 'email@teste.com' },
-      data: { data: [
-        { id: 3, link: 'link', keywords: ['facebook', 'discord', 'medium'] },
-        { id: 4, link: 'link', keywords: ['facebook'] },
-      ] } })
+    expect(prisma.linkContent.update).toBeCalledWith({
+      where: { email: 'email@teste.com' },
+      data: {
+        data: [
+          { id: 3, link: 'link', keywords: ['facebook', 'discord', 'medium'] },
+          { id: 4, link: 'link', keywords: ['facebook'] },
+        ],
+      },
+    })
   })
 })

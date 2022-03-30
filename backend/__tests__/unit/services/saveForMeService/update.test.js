@@ -27,16 +27,21 @@ describe('[update] Test case', () => {
     const response = await update({
       email: 'test@prisma.com',
       data: { keywords: ['food', 'fork'], link: 'link' },
-      linkContent: mockData })
+      linkContent: mockData,
+    })
 
     expect(response).not.toBeUndefined()
-    expect(prisma.linkContent.update).toBeCalledWith({ where: { email: 'test@prisma.com' },
-      data: { data: [
-        { id: 1, link: 'link-one', keywords: ['facebook', 'discord', 'medium'] },
-        { id: 2, link: 'link-two', keywords: ['medium', 'tutorial', 'test'] },
-        { id: 3, link: 'link-tree', keywords: ['scraper', 'aws', 'ec2'] },
-        { id: 9, link: 'link', keywords: ['food', 'fork'] },
-      ] } })
+    expect(prisma.linkContent.update).toBeCalledWith({
+      where: { email: 'test@prisma.com' },
+      data: {
+        data: [
+          { id: 1, link: 'link-one', keywords: ['facebook', 'discord', 'medium'] },
+          { id: 2, link: 'link-two', keywords: ['medium', 'tutorial', 'test'] },
+          { id: 3, link: 'link-tree', keywords: ['scraper', 'aws', 'ec2'] },
+          { id: 9, link: 'link', keywords: ['food', 'fork'] },
+        ],
+      },
+    })
   })
 
   it('Should delete an object of link and going to update without it', async () => {
@@ -58,14 +63,18 @@ describe('[update] Test case', () => {
     })
 
     expect(response).not.toBeUndefined()
-    expect(prisma.linkContent.update).toBeCalledWith({ where: { email: 'test@prisma.com' },
-      data: { data: [
-        { id: 1, link: 'link-one', keywords: ['facebook', 'discord', 'medium'] },
-        { id: 2, link: 'link-two', keywords: ['medium', 'tutorial', 'test'] },
-        { id: 3, link: 'link-tree', keywords: ['scraper', 'aws', 'ec2'] },
-        { id: 4, link: 'link-four', keywords: ['scraper', 'aws', 'ec2'] },
-        { id: 5, link: 'link-five', keywords: ['scraper', 'aws', 'ec2'] },
-        { id: 9, link: 'link-final', keywords: ['food', 'fork'] },
-      ] } })
+    expect(prisma.linkContent.update).toBeCalledWith({
+      where: { email: 'test@prisma.com' },
+      data: {
+        data: [
+          { id: 1, link: 'link-one', keywords: ['facebook', 'discord', 'medium'] },
+          { id: 2, link: 'link-two', keywords: ['medium', 'tutorial', 'test'] },
+          { id: 3, link: 'link-tree', keywords: ['scraper', 'aws', 'ec2'] },
+          { id: 4, link: 'link-four', keywords: ['scraper', 'aws', 'ec2'] },
+          { id: 5, link: 'link-five', keywords: ['scraper', 'aws', 'ec2'] },
+          { id: 9, link: 'link-final', keywords: ['food', 'fork'] },
+        ],
+      },
+    })
   })
 })

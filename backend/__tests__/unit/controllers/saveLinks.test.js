@@ -8,7 +8,7 @@ jest.mock('../../../src/services/saveForMeService/index')
 
 describe('[healthController] test case', () => {
   it('Should called saveForMeService service', async () => {
-    req.body = { email: 'test@email.com', data: { }, service: 'create' }
+    req.body = { email: 'test@email.com', data: {}, service: 'create' }
     saveForMeService.mockReturnValue({})
 
     await saveForMeController.save(req, res)
@@ -19,7 +19,7 @@ describe('[healthController] test case', () => {
   })
 
   it('Should called saveForMeService service', async () => {
-    req.body = { email: 'test@email.com', data: { }, service: 'create' }
+    req.body = { email: 'test@email.com', data: {}, service: 'create' }
     saveForMeService.mockRejectedValue()
 
     await saveForMeController.save(req, res)

@@ -13,8 +13,7 @@ describe('[create] Test case', () => {
     expect(response).not.toBeUndefined()
     expect(prisma.linkContent.create).toBeCalled()
     expect(prisma.linkContent.create).toBeCalledWith({
-      data: { data: { id: 1, link: 'link', keywords: ['facebook', 'discord', 'medium'] }, email: 'email@teste.com',
-      },
+      data: { data: { id: 1, link: 'link', keywords: ['facebook', 'discord', 'medium'] }, email: 'email@teste.com' },
     })
   })
 })

@@ -11,7 +11,7 @@
     "start": "npx prisma generate && node src/index.js",
     "test": "npx prisma generate && jest --coverage --silent --forceExit --detectOpenHandles",
     "test:ci": "NODE_ENV=staging cd __tests__ && ./run-tests.sh",
-    "lint": "eslint src/* --fix"
+    "lint": "eslint src/** --fix && npx prettier --write . && npx prisma format"
   },
   "contributors": [
     "Rafael Andrade <rafasouza@protonmail.com>",

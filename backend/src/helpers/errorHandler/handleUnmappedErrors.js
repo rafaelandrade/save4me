@@ -8,7 +8,9 @@ const { InternalServiceError } = require('errors-stack')
  * @param {Object} data.capturedException
  */
 const handleUnmappedErrors = ({ res, capturedException }) => {
-  const internalServiceError = new InternalServiceError(`This is a internal server error, sentry captured exception with id ${capturedException}`)
+  const internalServiceError = new InternalServiceError(
+    `This is a internal server error, sentry captured exception with id ${capturedException}`
+  )
 
   return res
     .status(500)
