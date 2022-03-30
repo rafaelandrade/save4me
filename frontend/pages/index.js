@@ -52,6 +52,8 @@ export default function Home() {
     (value) => {
       setLoading(true)
 
+      if (!links) return setTimeout(() => setLoading(false), 1000)
+
       const resultWithLink = links.filter((link) => link.link.toLowerCase().includes(value.toLowerCase()))
       const resultWithTag = links.filter((link) => link.keywords.includes(value.toLowerCase()))
       const resultWithTitle = links.filter((link) => link.title.toLowerCase().includes(value.toLowerCase()))

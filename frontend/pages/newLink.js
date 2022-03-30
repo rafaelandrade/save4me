@@ -41,7 +41,7 @@ export default function NewLink({
   }
 
   const validateTitle = () => {
-    return title.value.length > 0
+    return title.value?.length > 0
   }
 
   const handleNext = () => {
@@ -133,7 +133,7 @@ export default function NewLink({
   }
 
   const handleAddTag = (value) => {
-    if (tags.length === 3) return handleAddLink()
+    if (tags?.length === 3) return handleAddLink()
 
     setTags([...tags, { text: value.split(',')[0].toLowerCase(), id: Math.random() }])
     return setTagsString({ ...tags, value: '' })
