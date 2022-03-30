@@ -10,7 +10,7 @@
     "dev": "npx prisma generate && nodemon src/index.js",
     "start": "npx prisma generate && node src/index.js",
     "test": "jest --coverage --silent --forceExit --detectOpenHandles",
-    "lint": "eslint src/** && npx prettier --write ."
+    "lint": "eslint src/** --fix && npx prettier --write ."
   },
   "contributors": [
     "Rafael Andrade <rafasouza@protonmail.com>",
