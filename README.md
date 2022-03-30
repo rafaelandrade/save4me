@@ -1,7 +1,16 @@
 # save4me
 
-[![codecov](https://codecov.io/gh/rafaelandrade/save4me/branch/main/graph/badge.svg?token=WFGEIGADXT)](https://codecov.io/gh/rafaelandrade/save4me)
+<h1 align="center">Save4Me</h1>
 
-[![DeepSource](https://deepsource.io/gh/rafaelandrade/save4me.svg/?label=active+issues&show_trend=true&token=-2yg0vquVpY-hVgUG4io7F8z)](https://deepsource.io/gh/rafaelandrade/save4me/?ref=repository-badge)
+![Demo](.github/img/save4me.gif)
+
+<p align="center">
+  <img alt="codecov" src="https://codecov.io/gh/rafaelandrade/save4me/branch/main/graph/badge.svg?token=WFGEIGADXT">
+  <img alt="GitHub" src="https://img.shields.io/github/license/easybase/easybase-react">
+  <img alt="npm" src="https://img.shields.io/badge/npm-v16.14.0-brightgreen">
+</p>
+
 
 Made by [Rafael Andrade](https://github.com/rafaelandrade), and [João Augusto](https://github.com/Joao208)
+
+[!]
