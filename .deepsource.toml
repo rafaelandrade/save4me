@@ -1,8 +1,6 @@
 version = 1
 
-exclude_patterns = [
-    "frontend/**,",
-]
+exclude_patterns = ["frontend/**,"]
 
 [[analyzers]]
 name = "test-coverage"
