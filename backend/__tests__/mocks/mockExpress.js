@@ -23,6 +23,9 @@ module.exports = {
   res: mockExpressRes(),
   next: jest.fn(),
   req: {
-    body: {}, params: {}, headers: { authorization: '' }, query: {},
+    body: {},
+    params: {},
+    headers: { authorization: '' },
+    query: {},
   },
 }
