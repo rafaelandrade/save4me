@@ -35,3 +35,5 @@ yarn-error.log*
 .vercel
 
 chrome-extension.zip
+# Sentry
+.sentryclirc

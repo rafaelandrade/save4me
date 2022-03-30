@@ -6,7 +6,7 @@ import { ArrowLeftIcon } from '../public/icons/ArrowLeft'
 import { HelpIcon } from '../public/icons/Help'
 import * as S from '../styles/home'
 import validator from 'validator'
-import { postLinks, updateLinks } from '../services/api'
+import fetchBackend from '../services/api'
 
 export default function NewLink({
   initialValue = {},
@@ -93,8 +93,9 @@ export default function NewLink({
 
     if (isValidLink && isValidTitle) {
       if (initialValue?.id) {
-        const { message } = await updateLinks({
+        const { message } = await fetchBackend({
           email,
+          service: 'update',
           data: {
             link: formattedUrl(link.value),
             keywords: tags.map((tag) => tag.text),
@@ -105,8 +106,9 @@ export default function NewLink({
 
         setLinks(message?.data)
       } else {
-        const { message } = await postLinks({
+        const { message } = await fetchBackend({
           email,
+          service: 'create',
           data: {
             link: formattedUrl(link.value),
             keywords: tags.map((tag) => tag.text),

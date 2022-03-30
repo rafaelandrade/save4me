@@ -4,7 +4,7 @@ import LinkButton from '../components/linkButton'
 import List from '../components/list'
 import Loading from '../components/loading'
 import { SearchIcon } from '../public/icons/Search'
-import { deleteLinks, getLinks } from '../services/api'
+import fetchBackend from '../services/api'
 import * as S from '../styles/home'
 import Login from './login'
 import NewLink from './newLink'
@@ -22,7 +22,7 @@ export default function Home() {
   const fetchLinks = useCallback(async () => {
     setLoading(true)
 
-    const { message } = await getLinks({ email })
+    const { message } = await fetchBackend({ email })
 
     setLinks(message?.data)
     setLoading(false)
@@ -67,7 +67,7 @@ export default function Home() {
 
   const deleteLink = async (link) => {
     setLoading(true)
-    const { message } = await deleteLinks({ data: link, email })
+    const { message } = await fetchBackend({ data: link, email, service: 'remove' })
 
     setLinks(message?.data)
     setLoading(false)

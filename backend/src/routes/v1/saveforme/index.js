@@ -9,7 +9,7 @@ const router = Router()
 
 const schema = Joi.object({
   email: Joi.string().required(),
-  service: Joi.string(),
+  service: Joi.string().required(),
   data: Joi.object({
     id: Joi.string(),
     link: Joi.string().required(),
