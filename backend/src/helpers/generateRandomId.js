@@ -1,3 +1,4 @@
-const generateRandomId = Math.floor(Math.random() * Math.floor(Math.random() * Date.now()))
+const crypto = require('crypto')
 
+const generateRandomId = crypto.randomUUID()
 module.exports = generateRandomId
