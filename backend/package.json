@@ -9,7 +9,7 @@
   "scripts": {
     "dev": "npx prisma generate && nodemon src/index.js",
     "start": "npx prisma generate && node src/index.js",
-    "test": "DATABASE_URL=mongodb://localhost:27017/local npx prisma generate && jest --coverage --silent --forceExit --detectOpenHandles",
+    "test": "npx prisma generate && jest --coverage --silent --forceExit --detectOpenHandles",
     "test:ci": "NODE_ENV=staging cd __tests__ && ./run-tests.sh",
     "lint": "eslint src/* --fix"
   },
