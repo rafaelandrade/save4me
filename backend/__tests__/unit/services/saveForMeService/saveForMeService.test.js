@@ -17,7 +17,7 @@ describe('[saveForMeService] Test case', () => {
     update.mockReturnValue({})
     // @ts-ignore
     remove.mockReturnValue({})
-  });
+  })
 
   it('Should called create function if not find any data in database and service going to be create', async () => {
     prisma.linkContent.findUnique = jest.fn().mockReturnValue(null)
