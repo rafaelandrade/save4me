@@ -18,6 +18,7 @@
 ----
 
 💻 Develop by [Rafael Andrade](https://github.com/rafaelandrade), [João Augusto](https://github.com/Joao208)
+<br>
 🎨 Design by [Mateus Coutinho](https://www.linkedin.com/in/coutinhomm/)
 
 ## Table of contents
