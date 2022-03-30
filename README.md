@@ -26,8 +26,8 @@
 - [Getting Started](#getting-started)
 - [Technologies](#technologies)
 - [Contributing](#contributing)
-- [License](#license)
-## getting-started
+- [License](#⚠️-license)
+## Getting Started
 
 Before everything it is important to have some technologies installed in your computer which means:
 
