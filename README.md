@@ -1,4 +1,4 @@
-![Demo](.github/img/save4me-logo.gif)
+<p align="center"> ![Demo](.github/img/save4me-logo.gif) </p>
 <br>
 
 <h4 align="center"> The Save4Me is a solution that quickly and easily saves your links without wasting your time with forms. </h4>
@@ -25,11 +25,12 @@
 - [Getting Started](#getting-started)
 - [Technologies](#technologies)
 - [Contributing](#contributing)
+- [License](#license)
 ## getting-started
 
 Before everything it is important to have some technologies installed in your computer which means:
 
-- [NVM](https://github.com/nvm-sh/nvm) installed
+- [NVM](https://github.com/nvm-sh/nvm)
 - [Yarn](https://classic.yarnpkg.com/lang/en/docs/install/)
 
 Run before:
@@ -51,6 +52,7 @@ to initiate in each project part:
 The explanation can be found bellow:
 
 -> [Backend](./backend/README.md)
+<br>
 -> [Frontend](./frontend/README.md)
 
 
@@ -65,8 +67,8 @@ The explanation can be found bellow:
 
 ## Contributing
 
---- In process of creation of document with all details.
+Would you like to contribute to this project? [CONTRIBUTING.md](CONTRIBUTING.md) has all the details on how to do that.
 
-<h2> ⚠️ License </h2>
+## ⚠️ License
 
 Save4Me is licensed under the terms of the GPL Open Source license and is available for free.
