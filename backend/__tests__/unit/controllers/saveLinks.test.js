@@ -17,4 +17,15 @@ describe('[healthController] test case', () => {
     expect(saveForMeService).toBeCalledWith({ email: 'test@email.com', data: {}, service: 'create' })
     expect(errorHandler).not.toBeCalled()
   })
+
+  it('Should called saveForMeService service', async () => {
+    req.body = { email: 'test@email.com', data: { }, service: 'create' }
+    saveForMeService.mockRejectedValue()
+
+    await saveForMeController.save(req, res)
+
+    expect(saveForMeService).toBeCalled()
+    expect(saveForMeService).toBeCalledWith({ email: 'test@email.com', data: {}, service: 'create' })
+    expect(errorHandler).toBeCalled()
+  })
 })
