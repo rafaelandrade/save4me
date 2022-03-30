@@ -9,7 +9,8 @@
   "scripts": {
     "dev": "npx prisma generate && nodemon src/index.js",
     "start": "npx prisma generate && node src/index.js",
-    "test": "jest --coverage --silent --forceExit --detectOpenHandles",
+    "test": "npx prisma generate && jest --coverage --silent --forceExit --detectOpenHandles",
+    "test:ci": "NODE_ENV=staging cd __tests__ && ./run-tests.sh",
     "lint": "eslint src/* --fix"
   },
   "contributors": [
@@ -37,6 +38,11 @@
     "dotenv": "^16.0.0",
     "errors-stack": "^1.1.1",
     "express": "^4.17.3",
-    "helmet": "^5.0.2"
+    "express-joi-validation": "^5.0.1",
+    "express-validation": "^3.0.8",
+    "faker": "5.5.3",
+    "helmet": "^5.0.2",
+    "jest-mock-extended": "^2.0.4",
+    "joi": "^17.6.0"
   }
 }
