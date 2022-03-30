@@ -45,6 +45,27 @@ export const Container = styled.div`
     }
   }
 
+  .edit-wrapper {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    position: absolute;
+    right: 25px;
+
+    width: 28px;
+    height: 28px;
+
+    cursor: pointer;
+
+    :hover {
+      border-radius: 100%;
+
+      background: rgba(0, 19, 186, 0.1);
+    }
+  }
+
   p {
     font-family: 'Montserrat', sans-serif;
     font-style: normal;

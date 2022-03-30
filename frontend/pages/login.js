@@ -2,7 +2,7 @@ import { useState } from 'react'
 import GoogleButton from '../components/googleButton'
 import * as S from '../styles/home'
 
-export default function Login({ setIsLogged = () => {} }) {
+export default function Login({ setIsLogged = () => {}, setEmail = () => {} }) {
   const [loading, setLoading] = useState(false)
 
   const handleLogin = () => {
@@ -10,6 +10,11 @@ export default function Login({ setIsLogged = () => {} }) {
     chrome.identity.getAuthToken({ interactive: true }, (token) => {
       if (token) {
         chrome.storage.local.set({ token })
+        chrome.identity.getProfileUserInfo({}, ({ email }) => {
+          chrome.storage.local.set({ email })
+          setEmail(email)
+        })
+
         setIsLogged(true)
       }
 

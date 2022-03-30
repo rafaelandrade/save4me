@@ -1,8 +1,6 @@
 const update = require('../../../../src/services/saveForMeService/update')
 const prisma = require('../../../../src/config/prisma')
 
-jest.mock('../../../../src/helpers/generateRandomId', () => 9)
-
 describe('[update] Test case', () => {
   it('Should throw a error in case of not find any data in database', async () => {
     try {
@@ -27,6 +25,7 @@ describe('[update] Test case', () => {
     const response = await update({
       email: 'test@prisma.com',
       data: { keywords: ['food', 'fork'], link: 'link' },
+      // @ts-ignore
       linkContent: mockData,
     })
 
@@ -59,6 +58,7 @@ describe('[update] Test case', () => {
     const response = await update({
       email: 'test@prisma.com',
       data: { keywords: ['food', 'fork'], link: 'link-final' },
+      // @ts-ignore
       linkContent: mockData,
     })
 

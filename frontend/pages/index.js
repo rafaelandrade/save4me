@@ -4,6 +4,7 @@ import LinkButton from '../components/linkButton'
 import List from '../components/list'
 import Loading from '../components/loading'
 import { SearchIcon } from '../public/icons/Search'
+import { deleteLinks, getLinks } from '../services/api'
 import * as S from '../styles/home'
 import Login from './login'
 import NewLink from './newLink'
@@ -13,35 +14,32 @@ export default function Home() {
   const [showAddLink, setShowAddLink] = useState(false)
   const [loading, setLoading] = useState(false)
   const [isLogged, setIsLogged] = useState(false)
-  const [links, setLinks] = useState([
-    {
-      img: 'https://cdn-teams-slug.flaticon.com/google.jpg',
-      title: 'Google',
-      url: 'https://google.com',
-      tags: ['google'],
-    },
-    {
-      img: 'https://cdn-teams-slug.flaticon.com/google.jpg',
-      title: 'Twitter',
-      url: 'https://google.com',
-      tags: ['twitter'],
-    },
-    {
-      img: 'https://cdn-teams-slug.flaticon.com/google.jpg',
-      title: 'Facebook',
-      url: 'https://google.com',
-      tags: ['facebook'],
-    },
-  ])
+  const [links, setLinks] = useState([])
+  const [email, setEmail] = useState('')
   const [searchResult, setSearchResult] = useState(null)
+  const [initialValue, setInitialValue] = useState(undefined)
+
+  const fetchLinks = useCallback(async () => {
+    setLoading(true)
+
+    const { message } = await getLinks({ email })
+
+    setLinks(message?.data)
+    setLoading(false)
+  }, [email])
 
   useEffect(() => {
-    if (!chrome.storage) return setIsLogged(true)
+    if (!chrome?.storage?.local?.get) {
+      return setIsLogged(true)
+    }
 
-    chrome.storage.local.get(['token'], (result) => {
+    chrome.storage.local.get(['token', 'email'], (result) => {
       if (result.token) setIsLogged(true)
+      if (result.email) setEmail(result.email)
     })
-  }, [])
+
+    fetchLinks()
+  }, [fetchLinks])
 
   const handleKeyPress = useCallback(async (event) => {
     if (event.ctrlKey && event.key === 'f') {
@@ -54,8 +52,8 @@ export default function Home() {
     (value) => {
       setLoading(true)
 
-      const resultWithLink = links.filter((link) => link.title.toLowerCase().includes(value.toLowerCase()))
-      const resultWithTag = links.filter((link) => link.tags.includes(value.toLowerCase()))
+      const resultWithLink = links.filter((link) => link.link.toLowerCase().includes(value.toLowerCase()))
+      const resultWithTag = links.filter((link) => link.keywords.includes(value.toLowerCase()))
       const resultWithTitle = links.filter((link) => link.title.toLowerCase().includes(value.toLowerCase()))
 
       const result = [...new Set([...resultWithLink, ...resultWithTag, ...resultWithTitle])]
@@ -67,6 +65,19 @@ export default function Home() {
     [links]
   )
 
+  const deleteLink = async (link) => {
+    setLoading(true)
+    const { message } = await deleteLinks({ data: link, email })
+
+    setLinks(message?.data)
+    setLoading(false)
+  }
+
+  const editLink = async (link) => {
+    setShowAddLink(true)
+    setInitialValue(link)
+  }
+
   useEffect(() => {
     document.addEventListener('keydown', handleKeyPress)
 
@@ -75,12 +86,18 @@ export default function Home() {
     }
   }, [handleKeyPress])
 
-  if (!isLogged) return <Login setIsLogged={setIsLogged} />
+  if (!isLogged) return <Login setEmail={setEmail} setIsLogged={setIsLogged} />
 
   return (
     <>
       {showAddLink ? (
-        <NewLink setShowAddLink={setShowAddLink} />
+        <NewLink
+          setInitialValue={setInitialValue}
+          initialValue={initialValue}
+          email={email}
+          setLinks={setLinks}
+          setShowAddLink={setShowAddLink}
+        />
       ) : (
         <S.Container>
           <S.FlexWrapper onClick={() => setSearchResult(null)}>
@@ -100,7 +117,7 @@ export default function Home() {
               <LinkButton onClick={() => setShowAddLink(true)} text="New link" />
             </div>
           </div>
-          <List links={searchResult || links} />
+          <List onEdit={editLink} onDelete={deleteLink} links={searchResult || links} />
         </S.Container>
       )}
     </>

@@ -1,16 +1,16 @@
 const remove = require('../../../../src/services/saveForMeService/remove')
 const prisma = require('../../../../src/config/prisma')
 
-jest.mock('../../../../src/helpers/generateRandomId', () => 1)
-
 describe('[remove] Test case', () => {
   it('Should delete link with id equal to 3 and just going to update data with id 4', async () => {
     const data = { id: 3, keywords: ['facebook', 'discord', 'medium'], link: 'link' }
 
     prisma.linkContent.update = jest.fn().mockReturnValue('')
+
     const response = await remove({
       email: 'email@teste.com',
       data,
+      // @ts-ignore
       linkContent: {
         data: [
           { id: 3, link: 'link', keywords: ['facebook', 'discord', 'medium'] },
@@ -34,6 +34,7 @@ describe('[remove] Test case', () => {
     const response = await remove({
       email: 'email@teste.com',
       data,
+      // @ts-ignore
       linkContent: {
         data: [
           { id: 3, link: 'link', keywords: ['facebook', 'discord', 'medium'] },

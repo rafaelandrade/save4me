@@ -8,7 +8,15 @@ const { requireToken } = require('../../../middlewares')
 const router = Router()
 
 const schema = Joi.object({
-  email: Joi.string().required,
+  email: Joi.string().required(),
+  service: Joi.string(),
+  data: Joi.object({
+    id: Joi.string(),
+    link: Joi.string().required(),
+    title: Joi.string().required(),
+    keywords: Joi.array().items(Joi.string()),
+    icon: Joi.string(),
+  }),
 })
 
 /**

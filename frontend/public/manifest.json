@@ -31,7 +31,7 @@
       }
     }
   },
-  "permissions": ["activeTab", "scripting", "tabs", "storage", "clipboardRead", "identity"],
+  "permissions": ["activeTab", "scripting", "tabs", "storage", "clipboardRead", "identity", "identity.email"],
   "content_scripts": [
     {
       "matches": ["https://*/*", "http://*/*"],
