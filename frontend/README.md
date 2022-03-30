@@ -28,7 +28,7 @@ Frontend of Save4Me extensions with all codes and styles
 - [ ] Commands
 - [ ] Firefox
 
-## Pré-requisitos e como rodar a aplicação/testes
+## Prerequisites and how to run the application/tests
 
 You need [NVM](https://github.com/nvm-sh/nvm) installed
 
