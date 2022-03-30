@@ -17,12 +17,12 @@ jobs:
         node-version: 16
     - name: Build
       run: |
-        yarn build
-        yarn zip
+        yarn workspace frontend build
+        yarn workspace frontend zip
     - name: Upload & release
       uses: mnao305/chrome-extension-upload@2.2.0
       with:
         file-path: chrome-extension.zip
-        extension-id: ''
+        extension-id: 'hgeljhlpmkmbblgnnoalfgedcaekbcnd'
         client-id: ${{ secrets.CLIENT_ID }}
         refresh-token: ${{ secrets.REFRESH_TOKEN }}
