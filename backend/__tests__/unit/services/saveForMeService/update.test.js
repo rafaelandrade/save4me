@@ -1,3 +1,4 @@
+const { BodyPropertyError } = require('errors-stack')
 const update = require('../../../../src/services/saveForMeService/update')
 const prisma = require('../../../../src/config/prisma')
 
@@ -7,7 +8,7 @@ describe('[update] Test case', () => {
       await update({ email: 'test@email.com', data: {}, linkContent: null })
     } catch (error) {
       expect(error).toBeTruthy()
-      expect(error.name).toBe('BodyPropertyError')
+      expect(error).toBeInstanceOf(BodyPropertyError)
       expect(error.message).toBe('Could not find any link content with these email!')
     }
   })
