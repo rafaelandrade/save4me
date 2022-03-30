@@ -1,4 +1,4 @@
-<p align="center"> ![Demo](.github/img/save4me-logo.gif) </p>
+![Demo](.github/img/save4me-logo.gif)
 <br>
 
 <h4 align="center"> The Save4Me is a solution that quickly and easily saves your links without wasting your time with forms. </h4>
