@@ -30,14 +30,11 @@ jobs:
         run: |
           cd backend
           cat << EOF > .env
-          DATABASE_URL=mongodb://localhost:27017/local?retryWrites=false
+          DATABASE_URL=${{ secrets.DATABASE_URL }}
           EOF
 
       - name: Run the backend-tests
         run: yarn workspace backend run test
-        # with:
-        # NODE_ENV: 'test'
-        # DATABASE_URL: ${{ secrets.DATABASE_URL }}
 
       - uses: codecov/codecov-action@v2
         with:
