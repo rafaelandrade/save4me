@@ -16,6 +16,7 @@
     "lint": "next lint",
     "zip": "zip -r chrome-extension.zip ./out",
     "jest": "jest",
+    "build:envs": "node build-inject.js",
     "test": "jest && npm run e2e:headless",
     "test:merge": "npx nyc report --reporter lcov --reporter text --report-dir coverage"
   },
