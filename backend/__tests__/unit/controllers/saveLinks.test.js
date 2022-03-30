@@ -15,12 +15,12 @@ describe('[healthController] test case', () => {
   })
 
   it('Should called saveForMeService service', async () => {
-    req.body = { email: 'test@email.com', data: { } }
+    req.body = { email: 'test@email.com', data: { }, service: 'create' }
     saveForMeService.mockReturnValue({})
 
     await saveForMeController.save(req, res)
 
     expect(saveForMeService).toBeCalled()
-    expect(saveForMeService).toBeCalledWith({ email: 'test@email.com', data: {}, inactivate: false })
+    expect(saveForMeService).toBeCalledWith({ email: 'test@email.com', data: {}, service: 'create' })
   })
 })

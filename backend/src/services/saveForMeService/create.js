@@ -1,19 +1,23 @@
 const prisma = require('../../config/prisma')
+const logger = require('../logger')
+const randomId = require('../../helpers/generateRandomId')
 
 /**
  * @async
  * @function create
- * @param {String} email
- * @param {Object} data
- * @returns {Promise<>}
+ * @param {object} data - Service object
+ * @param {String} data.email
+ * @param {Object} data.data
+ * @returns {Promise<import('@prisma/client').LinkContent>}
  */
 const create = async ({ email, data }) => {
-  const userLinkContent = data.map((value) => ({
-    [`${value.data.principal}`]: { link: value.data.link, keywords: value.data.words, active: true },
-  }))
+  const response = await prisma.linkContent.create({
+    data: { email, data: { id: randomId, link: data.link, keywords: data.keywords } },
+  })
 
-  // @ts-ignore
-  return prisma.linkContent.create({ email, data: Object.assign({}, ...userLinkContent) })
+  logger.print({ severity: 'info', message: `Created follow link data ${logger.beautify(response)}`, event: 'createService' })
+
+  return response
 }
 
 module.exports = create

@@ -8,17 +8,23 @@ const { saveForMeService } = require('../../../services')
  * @param {*} req
  * @return {Promise<any>}
  */
-const saveLinks = (req, res) => {
-  logger.print({ severity: 'info', message: 'Initiation of save links service...' })
-  const { email, data, inactivate = false } = req.body
+const saveLinks = async (req, res) => {
+  const { email, data, service } = req.body
   try {
-    if (!email) throw new BodyPropertyError({ message: 'Email was not send!' })
+    logger.print({
+      severity: 'info',
+      message: `Initiation of service: ${service} with follow data: ${logger.beautify(data)} `,
+      event: 'saveLinksRoute',
+    })
 
-    return saveForMeService({
+    if (!email) throw new BodyPropertyError('Email was not send!')
+
+    const response = await saveForMeService({
       email,
       data,
-      inactivate,
+      service,
     })
+    return res.status(200).json({ error: false, message: response })
   } catch (error) {
     return errorHandler({ res, error })
   }

@@ -1,24 +1,30 @@
 const create = require('./create')
 const update = require('./update')
+const remove = require('./remove')
 
-const logger = require('../logger')
 const prisma = require('../../config/prisma')
+
+const { saveForMeConstants } = require('../../constants')
 
 /**
  * @async
  * @function saveForMeService
- * @param {String} email
- * @param {Object} data
- * @param {boolean} inactivate
- * @returns {Promise<>}
+ * @param {object} data - Service object
+ * @param {String} data.email
+ * @param {Object} data.data
+ * @param {String} data.service
+ * @returns {Promise<import('@prisma/client').LinkContent>}
  */
-const saveForMeService = async ({ email, data, inactivate = false }) => {
-  const getLinkContent = await prisma.linkContent.findUnique({ where: { email } })
+const saveForMeService = async ({ email, data, service }) => {
+  const linkContent = await prisma.linkContent.findUnique({ where: { email } })
 
-  logger.print({ severity: 'info', message: '' })
-  if (!getLinkContent) return create({ email, data })
+  if (!linkContent && service === saveForMeConstants.create) return create({ email, data })
 
-  return update({ email, data, inactivate })
+  if (linkContent && service === saveForMeConstants.remove) return remove({ email, data, linkContent })
+
+  if (linkContent && service === saveForMeConstants.update) return update({ email, data, linkContent })
+
+  return linkContent
 }
 
 module.exports = saveForMeService
