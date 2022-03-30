@@ -36,4 +36,16 @@ describe('[scrapper] Test case', () => {
       title: 'GitHub: Where the world builds software · GitHub',
     })
   })
+
+  it('Should return empty metadata if does not has link or link is invalid', async () => {
+    const site = 'http'
+
+    const metadata = await scrapper(site)
+
+    expect(metadata).toEqual({
+      description: '',
+      image: 'https://avatars.dicebear.com/api/initials/http.svg',
+      title: '',
+    })
+  })
 })
