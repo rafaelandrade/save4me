@@ -23,6 +23,7 @@ const saveForMeService = async ({ email, data, service }) => {
     [saveForMeConstants.update]: update,
     [saveForMeConstants.remove]: remove,
   }
+
   if (obj[service]) {
     return obj[service]({ email, data, linkContent })
   }

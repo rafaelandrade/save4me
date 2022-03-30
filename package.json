@@ -4,6 +4,9 @@
     "backend",
     "frontend"
   ],
+  "scripts": {
+    "start": "cd backend && yarn start"
+  },
   "contributors": [
     "Rafael Andrade <rafasouza@protonmail.com>",
     "João Augusto <augustoj311@gmail.com>",

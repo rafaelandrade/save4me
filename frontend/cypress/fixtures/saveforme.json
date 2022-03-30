@@ -1,0 +1,25 @@
+{
+  "error": false,
+  "message": {
+    "id": "6244704d1a2c57b6c378f35c",
+    "email": "augustoj311@gmail.com",
+    "data": [
+      {
+        "id": "176a8bfd-82c1-47d7-980f-d998790db901",
+        "link": "github.com",
+        "title": "Github",
+        "icon": "https://cdn-icons-png.flaticon.com/512/25/25231.png",
+        "keywords": ["site", "repo", "dev"]
+      },
+      {
+        "id": "a909f90c-c68b-4eb1-8b7a-cb98d7d5a550",
+        "link": "https://figma.com",
+        "keywords": ["design"],
+        "title": "Figma",
+        "icon": "https://cdn.sanity.io/images/599r6htc/localized/0ee4e52ec34a1aef92e1b2bb7e29820685083b3e-2400x1260.png?w=1200&q=70&fit=max&auto=format"
+      }
+    ],
+    "createdAt": "2022-03-30T14:59:25.323Z",
+    "updatedAt": "2022-03-30T15:26:26.363Z"
+  }
+}

@@ -1,19 +1,48 @@
 {
-    "manifest_version": 3,
-    "name": "save4me",
-    "short_name": "save4me",
-    "version": "1.0.0",
-    "description": "Chrome extension made with NextJS",
-    "icons": {},
-    "permissions": [],
-    "content_scripts": [
-      {
-        "matches": ["https://*/*", "http://*/*"],
-        "js": ["inject.js"]
+  "manifest_version": 3,
+  "name": "save4me",
+  "short_name": "save4me",
+  "version": "1.0.0",
+  "description": "I’ll help you to never lose your links again.",
+  "icons": {
+    "16": "plugin/16x16.png",
+    "48": "plugin/48x48.png",
+    "128": "plugin/128x128.png"
+  },
+  "oauth2": {
+    "client_id": "132110520675-63bale6k5pfrq6jljbdv4emhatdg3dd3.apps.googleusercontent.com",
+    "scopes": ["https://www.googleapis.com/auth/userinfo.email"]
+  },
+  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEApLK3Q3TNX2ooJAUUdTSEpLB+qYMmI2HYRhrvp2cjBMX+heb21B5KxZ8p4Zj2CxG7c6XA7LzhLbWLZHhwo5Hz0/BL3EC+9DXXH5mZHIQwhFPFyc1AFm7sQPBXJJUj6K4I6ej6nRQtDo4YW+jV7hhCZmBZ7CzQinhuidHCRVGEemnjn455TwS3uI6/D7Eclhq8zj0QYKlRVUUiy0eK9VtPqC5LI62xUoUMLELtBTJnVQlNKlMcacN6/+Th0FfwwcuIaWLiyZpl8NsGuQRifW+EFJbltwLS7u4ayBftWa/mqoa3x8G+JjYVrGWsUu3fQ126Bf9sABQR9IrcZlH2cFJd0QIDAQAB",
+  "commands": {
+    "save": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+S",
+        "mac": "Command+Shift+S"
+      },
+      "description": "Save the current page."
+    },
+    "_execute_action": {
+      "suggested_key": {
+        "windows": "Ctrl+Shift+S",
+        "mac": "Command+Shift+S",
+        "chromeos": "Ctrl+Shift+S",
+        "linux": "Ctrl+Shift+S"
       }
-    ],
-    "host_permissions": ["<all_urls>"],
-    "action": {
-      "default_popup": "index.html"
     }
+  },
+  "permissions": ["activeTab", "scripting", "tabs", "storage", "clipboardRead", "identity", "identity.email"],
+  "content_scripts": [
+    {
+      "matches": ["https://*/*", "http://*/*"],
+      "js": ["inject.js"]
+    }
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "host_permissions": ["<all_urls>"],
+  "action": {
+    "default_popup": "index.html"
   }
+}

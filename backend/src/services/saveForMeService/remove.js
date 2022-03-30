@@ -7,11 +7,10 @@ const logger = require('../logger')
  * @param {object} data - Service object
  * @param {String} data.email
  * @param {Object} data.data
- * @param {import('@prisma/client').LinkContent} data.linkContent
+ * @param {{data:Array}} data.linkContent
  * @returns {Promise<import('@prisma/client').LinkContent>}
  */
 const remove = async ({ email, data, linkContent }) => {
-  // @ts-ignore
   const newLinks = linkContent.data.filter((value) => value.id !== data.id)
 
   logger.print({

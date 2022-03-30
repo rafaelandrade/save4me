@@ -16,6 +16,7 @@
     "lint": "next lint",
     "zip": "zip -r chrome-extension.zip ./out",
     "jest": "jest",
+    "build:envs": "node build-inject.js",
     "test": "jest && npm run e2e:headless",
     "test:merge": "npx nyc report --reporter lcov --reporter text --report-dir coverage"
   },
@@ -26,10 +27,13 @@
   ],
   "dependencies": {
     "@babel/runtime": "^7.17.7",
+    "@sentry/nextjs": "^6.19.3",
+    "axios": "^0.26.1",
     "next": "12.1.0",
     "react": "17.0.2",
     "react-dom": "17.0.2",
-    "styled-components": "^5.3.3"
+    "styled-components": "^5.3.3",
+    "validator": "^13.7.0"
   },
   "nyc": {
     "report-dir": "coverage/cypress",
@@ -39,10 +43,12 @@
     ]
   },
   "devDependencies": {
-    "babel-plugin-styled-components": "^2.0.2",
     "@babel/preset-react": "^7.16.7",
     "@cypress/code-coverage": "^3.9.12",
+    "@types/chrome": "^0.0.180",
+    "babel-plugin-styled-components": "^2.0.2",
     "cypress": "8.7.0",
+    "cypress-keyboard-plugin": "^1.0.3",
     "eslint": "8.11.0",
     "eslint-config-next": "12.1.0",
     "npm-watch": "^0.11.0",
