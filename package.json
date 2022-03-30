@@ -5,7 +5,7 @@
     "frontend"
   ],
   "scripts": {
-    "start": "cd backend && npm run start"
+    "start": "cd backend && yarn start"
   },
   "contributors": [
     "Rafael Andrade <rafasouza@protonmail.com>",
