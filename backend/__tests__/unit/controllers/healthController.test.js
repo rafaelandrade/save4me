@@ -3,6 +3,7 @@ const { res, req } = require('../../mocks').mockExpress
 const keys = require('../../../src/config/keys')
 
 jest.mock('../../../src/helpers/errorHandler')
+jest.mock('../../../src/helpers/errorHandler')
 
 describe('[healthController] test case', () => {
   it('Should return status 200 and error false', () => {
