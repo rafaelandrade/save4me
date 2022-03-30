@@ -10,11 +10,16 @@ jest.mock('../../../../src/services/saveForMeService/update')
 jest.mock('../../../../src/services/saveForMeService/remove')
 
 describe('[saveForMeService] Test case', () => {
-  it('Should called create function if not find any data in database and service going to be create', async () => {
+  beforeAll(() => {
+    // @ts-ignore
     create.mockReturnValue({})
+    // @ts-ignore
     update.mockReturnValue({})
+    // @ts-ignore
     remove.mockReturnValue({})
+  });
 
+  it('Should called create function if not find any data in database and service going to be create', async () => {
     prisma.linkContent.findUnique = jest.fn().mockReturnValue(null)
 
     const response = await saveForMeService({ email: 'test@email.com', data: {}, service: 'create' })
@@ -27,10 +32,6 @@ describe('[saveForMeService] Test case', () => {
   })
 
   it('Should called remove function if find some link in database and remove name is in service', async () => {
-    create.mockReturnValue({})
-    update.mockReturnValue({})
-    remove.mockReturnValue({})
-
     prisma.linkContent.findUnique = jest.fn().mockReturnValue({ link: '' })
 
     const response = await saveForMeService({ email: 'test2@email.com', data: {}, service: 'remove' })
@@ -43,10 +44,6 @@ describe('[saveForMeService] Test case', () => {
   })
 
   it('Should called update function if find some link in database and update is in service', async () => {
-    create.mockReturnValue({})
-    update.mockReturnValue({})
-    remove.mockReturnValue({})
-
     prisma.linkContent.findUnique = jest.fn().mockReturnValue({ link: '' })
 
     const response = await saveForMeService({ email: 'test3@email.com', data: {}, service: 'update' })
@@ -59,10 +56,6 @@ describe('[saveForMeService] Test case', () => {
   })
 
   it('Should not call create, update and remove just going to return data based on email', async () => {
-    create.mockReturnValue({})
-    update.mockReturnValue({})
-    remove.mockReturnValue({})
-
     prisma.linkContent.findUnique = jest.fn().mockReturnValue({ link: '' })
 
     const response = await saveForMeService({ email: 'test4@email.com', data: {}, service: 'list' })

@@ -1,4 +1,3 @@
-const { BodyPropertyError } = require('errors-stack')
 const logger = require('../../../services/logger')
 const { errorHandler } = require('../../../helpers')
 const { saveForMeService } = require('../../../services')
@@ -16,8 +15,6 @@ const saveLinks = async (req, res) => {
       message: `Initiation of service: ${service} with follow data: ${logger.beautify(data)} `,
       event: 'saveLinksRoute',
     })
-
-    if (!email) throw new BodyPropertyError('Email was not send!')
 
     const response = await saveForMeService({
       email,

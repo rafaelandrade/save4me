@@ -7,13 +7,6 @@ jest.mock('../../../src/helpers/errorHandler')
 jest.mock('../../../src/services/saveForMeService/index')
 
 describe('[healthController] test case', () => {
-  it('Should throw a error in case of not send email in body', async () => {
-    req.body = { email: null }
-    await saveForMeController.save(req, res)
-
-    expect(errorHandler).toBeCalled()
-  })
-
   it('Should called saveForMeService service', async () => {
     req.body = { email: 'test@email.com', data: { }, service: 'create' }
     saveForMeService.mockReturnValue({})
@@ -22,5 +15,6 @@ describe('[healthController] test case', () => {
 
     expect(saveForMeService).toBeCalled()
     expect(saveForMeService).toBeCalledWith({ email: 'test@email.com', data: {}, service: 'create' })
+    expect(errorHandler).not.toBeCalled()
   })
 })

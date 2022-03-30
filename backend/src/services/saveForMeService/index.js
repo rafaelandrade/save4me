@@ -18,11 +18,14 @@ const { saveForMeConstants } = require('../../constants')
 const saveForMeService = async ({ email, data, service }) => {
   const linkContent = await prisma.linkContent.findUnique({ where: { email } })
 
-  if (!linkContent && service === saveForMeConstants.create) return create({ email, data })
-
-  if (linkContent && service === saveForMeConstants.remove) return remove({ email, data, linkContent })
-
-  if (linkContent && service === saveForMeConstants.update) return update({ email, data, linkContent })
+  const obj = {
+    [saveForMeConstants.create]: create,
+    [saveForMeConstants.update]: update,
+    [saveForMeConstants.remove]: remove,
+  }
+  if (obj[service]) {
+    return obj[service]({ email, data, linkContent })
+  }
 
   return linkContent
 }

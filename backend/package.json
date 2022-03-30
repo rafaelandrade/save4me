@@ -38,8 +38,11 @@
     "dotenv": "^16.0.0",
     "errors-stack": "^1.1.1",
     "express": "^4.17.3",
-    "faker": "^6.6.6",
+    "express-joi-validation": "^5.0.1",
+    "express-validation": "^3.0.8",
+    "faker": "5.5.3",
     "helmet": "^5.0.2",
-    "jest-mock-extended": "^2.0.4"
+    "jest-mock-extended": "^2.0.4",
+    "joi": "^17.6.0"
   }
 }

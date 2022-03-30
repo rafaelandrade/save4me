@@ -7,7 +7,7 @@ const logger = require('../../services/logger')
  * @param {*} res
  * @return {Promise<void>}
  */
-const healthController = async (_req, res) => {
+const healthController = (_req, res) => {
   try {
     logger.print({ severity: 'info', message: 'HealthController', event: 'healthController' })
     return res.status(200).json({ error: false, message: 'OK!' })
