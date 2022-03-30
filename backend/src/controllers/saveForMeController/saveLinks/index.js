@@ -12,7 +12,7 @@ const saveLinks = async (req, res) => {
   try {
     logger.print({
       severity: 'info',
-      message: `Initiation of service: ${service} with follow data: ${logger.beautify(data)} `,
+      message: `Initiation of service: ${service} with follow data: ${logger.beautify(data)}`,
       event: 'saveLinksRoute',
     })
 
