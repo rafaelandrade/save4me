@@ -38,13 +38,13 @@ describe('[scrapper] Test case', () => {
   })
 
   it('Should return empty metadata if does not has link or link is invalid', async () => {
-    const site = 'http'
+    const site = 'http://a.com'
 
     const metadata = await scrapper(site)
 
     expect(metadata).toEqual({
       description: '',
-      image: 'https://avatars.dicebear.com/api/initials/http.svg',
+      image: 'https://avatars.dicebear.com/api/initials/a.com.svg',
       title: '',
     })
   })
