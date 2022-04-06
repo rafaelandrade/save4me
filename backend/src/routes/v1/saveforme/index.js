@@ -1,6 +1,6 @@
 const { Router } = require('express')
 const { saveForMeController } = require('../../../controllers')
-const { requireToken, validator } = require('../../../middlewares')
+const { requireToken, Validator } = require('../../../middlewares')
 
 const router = Router()
 
@@ -59,6 +59,6 @@ const router = Router()
  *
  * @apiPermission Admin
  */
-router.post('/', requireToken, validator('crudSaveForMe'), saveForMeController.save)
+router.post('/', requireToken, Validator('crudSaveForMe'), saveForMeController.save)
 
 module.exports = router
