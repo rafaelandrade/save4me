@@ -1,23 +1,8 @@
-const Joi = require('joi')
-const validator = require('express-joi-validation').createValidator({})
-
 const { Router } = require('express')
 const { saveForMeController } = require('../../../controllers')
-const { requireToken } = require('../../../middlewares')
+const { requireToken, validator } = require('../../../middlewares')
 
 const router = Router()
-
-const schema = Joi.object({
-  email: Joi.string().required(),
-  service: Joi.string().required(),
-  data: Joi.object({
-    id: Joi.string(),
-    link: Joi.string().required(),
-    title: Joi.string().required(),
-    keywords: Joi.array().items(Joi.string()),
-    icon: Joi.string(),
-  }),
-})
 
 /**
  * @api {post} /v1/saveforme/
@@ -74,6 +59,6 @@ const schema = Joi.object({
  *
  * @apiPermission Admin
  */
-router.post('/', requireToken, validator.body(schema), saveForMeController.save)
+router.post('/', requireToken, validator('crudSaveForMe'), saveForMeController.save)
 
 module.exports = router
