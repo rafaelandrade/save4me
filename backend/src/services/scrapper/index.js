@@ -10,12 +10,13 @@ const logger = require('../logger')
  * @returns {Promise<{title?:string, description?:string, image?:string}>}
  */
 const scrapper = async (site) => {
-  const urlData = new URL(site)
+  const linkURL = (site.indexOf('://') === -1) ? `http://${site}/` : site
+  const urlData = new URL(linkURL)
 
   const dicebearIcon = `https://avatars.dicebear.com/api/initials/${urlData.host}.svg`
 
   try {
-    const { data } = await axios.get(site)
+    const { data } = await axios.get(linkURL)
 
     const $ = cheerio.load(data)
 

@@ -1,4 +1,5 @@
-const scrapper = require('../../../../src/services/scrapper')
+const axios = require('axios').default
+const { scrapper } = require('../../../../src/services')
 
 describe('[scrapper] Test case', () => {
   it('Should return metadata of the website passed', async () => {
@@ -19,7 +20,7 @@ describe('[scrapper] Test case', () => {
     const metadata = await scrapper(site)
 
     expect(metadata).toEqual({
-      description: expect.any(String),
+      description: undefined,
       image: 'https://google.com//images/branding/googlelogo/1x/googlelogo_white_background_color_272x92dp.png',
       title: 'Google',
     })
@@ -47,5 +48,14 @@ describe('[scrapper] Test case', () => {
       image: 'https://avatars.dicebear.com/api/initials/a.com.svg',
       title: '',
     })
+  })
+
+  it('Should send url without http and axios should call with http', async () => {
+    const site = 'www.youtube.com'
+    jest.spyOn(axios, 'get')
+    // axios.get = jest.fn().mockReturnValue()
+    await scrapper(site)
+
+    expect(axios.get).toBeCalledWith('http://www.youtube.com/')
   })
 })
