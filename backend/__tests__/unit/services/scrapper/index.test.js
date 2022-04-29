@@ -53,7 +53,6 @@ describe('[scrapper] Test case', () => {
   it('Should send url without http and axios should call with http', async () => {
     const site = 'www.youtube.com'
     jest.spyOn(axios, 'get')
-    // axios.get = jest.fn().mockReturnValue()
     await scrapper(site)
 
     expect(axios.get).toBeCalledWith('http://www.youtube.com/')
