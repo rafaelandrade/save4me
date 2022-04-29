@@ -21,7 +21,7 @@ describe('[scrapper] Test case', () => {
 
     expect(metadata).toEqual({
       description: expect.any(String),
-      image: 'https://google.com//images/branding/googlelogo/1x/googlelogo_white_background_color_272x92dp.png',
+      image: 'https://google.com//logos/doodles/2022/toots-thielemans-100th-birthday-6753651837109398.4-l.png',
       title: 'Google',
     })
   })
