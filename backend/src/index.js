@@ -9,7 +9,7 @@ const logger = require('./services/logger')
 
 const app = express()
 
-const { PORT = 3000, SENTRY_DSN } = process.env
+const { PORT = 4003, SENTRY_DSN } = process.env
 
 Sentry.init({ dsn: SENTRY_DSN })
 
