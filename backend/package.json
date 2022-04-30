@@ -39,6 +39,7 @@
     "errors-stack": "^1.1.1",
     "express": "^4.17.3",
     "express-joi-validation": "^5.0.1",
+    "express-rate-limit": "^6.4.0",
     "express-validation": "^3.0.8",
     "faker": "5.5.3",
     "helmet": "^5.0.2",
