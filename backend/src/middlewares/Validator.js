@@ -5,7 +5,7 @@ const { InternalServiceError, BodyPropertyError } = require('errors-stack')
 const Validator = require('./validators')
 
 module.exports = function (validator) {
-  if (!validator) throw new Error('\'Validator was not send!')
+  if (!validator) throw new Error("'Validator was not send!")
 
   return async function (req, res, next) {
     try {

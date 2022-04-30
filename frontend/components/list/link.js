@@ -7,6 +7,7 @@ export default function Link({ title, icon, index, keywords, link, id, onDelete,
   const [isHovering, setIsHovering] = useState(false)
   const [isHoveringTrash, setIsHoveringTrash] = useState(false)
   const [isHoveringEdit, setIsHoveringEdit] = useState(false)
+  const [image, setImage] = useState(icon)
 
   return (
     <>
@@ -16,7 +17,7 @@ export default function Link({ title, icon, index, keywords, link, id, onDelete,
         onDoubleClick={() => window.open(link, '_blank')}
         key={index}
       >
-        <img src={icon} alt={`icon-logo-${icon}`} />
+        <img src={image} alt="icon" onError={() => setImage('https://avatars.dicebear.com/api/initials/saveforme.svg')} />
         <p>{title}</p>
         {isHovering ? (
           <>

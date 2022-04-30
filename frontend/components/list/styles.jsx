@@ -76,6 +76,11 @@ export const Container = styled.div`
     color: #393939;
 
     margin-left: 10px;
+
+    text-overflow: ellipsis;
+
+    overflow: hidden;
+    white-space: nowrap;
   }
 `
 
