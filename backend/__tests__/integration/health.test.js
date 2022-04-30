@@ -12,13 +12,4 @@ describe('healthController', () => {
     expect(response.body.error).toBe(false)
     expect(response.body.message).toBe('OK!')
   })
-
-  it('Should return status 401 if some error happens about wrong token', async () => {
-    const adminToken = 'potatoes'
-    keys.authTokens.adminToken = 'admin'
-
-    const response = await request(setTestApp).get('/v1/health/').set('Authorization', adminToken)
-
-    expect(response.status).toBe(401)
-  })
 })
