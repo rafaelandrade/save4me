@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import InputMask from 'react-input-mask'
 import * as S from './styles'
 
 export default function Input({
@@ -14,6 +15,7 @@ export default function Input({
   error = null,
   onEnter = () => {},
   id = 'component-input',
+  mask,
   ...props
 }) {
   const [focused, setFocused] = useState(false)
@@ -34,7 +36,8 @@ export default function Input({
       >
         {shouldAnimate ? <p onClick={handleFocus}>{text}</p> : null}
         {iconLeft}
-        <input
+        <InputMask
+          mask={mask}
           onKeyDown={(e) => {
             if (e.key === 'Enter') {
               onEnter(e.target.value)
