@@ -25,7 +25,7 @@ const fetchLogin = async ({ email, password }) => {
   } catch (error) {
     Sentry.captureException(error)
 
-    return {}
+    throw error
   }
 }
 

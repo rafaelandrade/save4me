@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import Button from '../components/button'
 import Input from '../components/input'
+import { fetchLogin } from '../services/api'
 import * as S from '../styles/home'
 
 export default function Login({ setIsLogged = () => {}, setEmail = () => {} }) {
@@ -10,9 +11,17 @@ export default function Login({ setIsLogged = () => {}, setEmail = () => {} }) {
   const [isValidPassword, setIsValidPassword] = useState(false)
   const [password, setPassword] = useState('')
 
-  const handleLogin = () => {
-    setLoading(true)
-    setIsLogged(true)
+  const handleLogin = async () => {
+    try {
+      setLoading(true)
+
+      await fetchLogin({ email: emailInput, password })
+
+      setIsLogged(true)
+      setLoading(false)
+    } catch {
+      setLoading(false)
+    }
   }
 
   useEffect(() => {
@@ -31,12 +40,14 @@ export default function Login({ setIsLogged = () => {}, setEmail = () => {} }) {
       <p className="title">Hi there 👋</p>
       <p className="description">I’ll help you to never lose your links again. To continue, simply log in.</p>
       <Input
+        id="email-input"
         error={!isValidEmail && emailInput && 'Invalid e-mail'}
         text="Email"
         value={emailInput}
         onChange={(value) => setEmailInput(value)}
       />
       <Input
+        id="password-input"
         type="password"
         error={!isValidPassword && password && 'Password must contain at least 8 characters'}
         text="Password"
