@@ -20,8 +20,7 @@ describe('[scrapper] Test case', () => {
     const metadata = await scrapper(site)
 
     expect(metadata).toEqual({
-      description: expect.any(String),
-      image: 'https://google.com//logos/doodles/2022/celebrating-route-66-6753651837108715.2-l.png',
+      image: expect.any(String),
       title: 'Google',
     })
   })
