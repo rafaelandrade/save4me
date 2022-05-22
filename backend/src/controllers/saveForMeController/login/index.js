@@ -1,6 +1,9 @@
+const bcrypt = require('bcrypt')
 const logger = require('../../../services/logger')
 const { errorHandler } = require('../../../helpers')
 const prisma = require('../../../config/prisma')
+
+const { create, verify } = require('../../../services/login')
 
 /**
  * @param {*} res
@@ -8,14 +11,23 @@ const prisma = require('../../../config/prisma')
  * @return {Promise<any>}
  */
 const login = async (req, res) => {
-  const { email } = req.body
+  const { email, password } = req.body
   try {
     logger.print({ severity: 'info', message: 'Initiation of login service...', event: 'loginController' })
-    const emailLogin = await prisma.linkContent.findUnique({ where: { email } })
+    const hasUser = await prisma.user.findUnique({ where: { email } })
 
-    logger.print({ severity: 'info', message: `The email ${email} already has data on database ${!!emailLogin}`, event: 'loginController' })
+    if (!hasUser) {
+      const response = await create({ email, password })
+      return res.status(201).json(response)
+    }
 
-    return res.status(200).json({ error: false, login: !!emailLogin })
+    if (hasUser && (await bcrypt.compare(password, hasUser.password))) {
+      const response = await verify({ user: hasUser, email })
+
+      return res.status(201).json(response)
+    }
+
+    return res.status(400).json({ error: true, message: await bcrypt.compare(password, hasUser.password) })
   } catch (error) {
     return errorHandler({ res, error })
   }
