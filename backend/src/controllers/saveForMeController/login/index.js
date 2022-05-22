@@ -14,20 +14,22 @@ const login = async (req, res) => {
   const { email, password } = req.body
   try {
     logger.print({ severity: 'info', message: 'Initiation of login service...', event: 'loginController' })
-    const hasUser = await prisma.user.findUnique({ where: { email } })
+    const user = await prisma.user.findUnique({ where: { email } })
 
-    if (!hasUser) {
+    if (!user) {
       const response = await create({ email, password })
       return res.status(201).json(response)
     }
 
-    if (hasUser && (await bcrypt.compare(password, hasUser.password))) {
-      const response = verify({ user: hasUser, email })
+    const hasSamePassword = await bcrypt.compare(password, user.password)
+
+    if (hasSamePassword) {
+      const response = verify({ user, email })
 
       return res.status(201).json(response)
     }
 
-    return res.status(400).json({ error: true, message: await bcrypt.compare(password, hasUser.password) })
+    return res.status(400).json({ error: true, message: 'Incorrect password!' })
   } catch (error) {
     return errorHandler({ res, error })
   }
