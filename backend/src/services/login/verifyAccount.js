@@ -9,9 +9,9 @@ const keys = require('../../config/keys')
  * @param {Object} data - Service object
  * @param {Object} data.user
  * @param {String} data.email
- * @returns {Promise<Object>}
+ * @returns {Object}
  */
-const verifyAccount = async ({ user, email }) => {
+const verifyAccount = ({ user, email }) => {
   logger.print({ severity: 'info', message: `Verification of user with ${email} finished...`, event: 'createAccount' })
   const token = jwt.sign({ user_id: user.id, email }, keys.authTokens.adminToken, { expiresIn: '2h' })
 

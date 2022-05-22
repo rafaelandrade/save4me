@@ -22,7 +22,7 @@ const login = async (req, res) => {
     }
 
     if (hasUser && (await bcrypt.compare(password, hasUser.password))) {
-      const response = await verify({ user: hasUser, email })
+      const response = verify({ user: hasUser, email })
 
       return res.status(201).json(response)
     }
