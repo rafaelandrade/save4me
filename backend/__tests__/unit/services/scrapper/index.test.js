@@ -15,13 +15,14 @@ describe('[scrapper] Test case', () => {
   })
 
   it('Should return metadata of the website passed and site does not contain five icon', async () => {
-    const site = 'https://google.com'
+    const site = 'https://www.github.com'
 
     const metadata = await scrapper(site)
 
     expect(metadata).toEqual({
-      image: expect.any(String),
-      title: 'Google',
+      description: expect.any(String),
+      image: 'https://github.com/fluidicon.png',
+      title: 'GitHub: Where the world builds software · GitHub',
     })
   })
 

@@ -61,4 +61,32 @@ const router = Router()
  */
 router.post('/', requireToken, Validator('crudSaveForMe'), saveForMeController.save)
 
+/**
+ * @api {post} /v1/saveforme/login
+ * @apiDescription Service responsible for the login of SaveForMeService
+ *
+ *
+ * @apiExample {curl} Example usage:
+ *    curl -i https://www.saveforme.com.br/v1/saveforme/login
+ *
+ * @apiSuccess {email} Email of the user
+ * @apiSuccessExample {json} Success-Response:
+ *    HTTP/1.1 200 OK
+ *    {
+ *         "error": false,
+ *         "login": true
+ *     }
+ * @apiGroup SaveForMe
+ * @apiHeader {String} authorization AdminToken.
+ * @apiHeaderExample {json} Header-Example:
+ *    {
+ *      "authorization": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"
+ *    }
+ *
+ * @apiName saveforme
+ *
+ * @apiPermission Admin
+ */
+router.post('/login', requireToken, Validator('login'), saveForMeController.login)
+
 module.exports = router
