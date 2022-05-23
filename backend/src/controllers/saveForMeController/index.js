@@ -1,1 +1,1 @@
-module.exports = { save: require('./saveLinks') }
+module.exports = { save: require('./saveLinks'), login: require('./login') }
