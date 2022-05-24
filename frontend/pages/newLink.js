@@ -6,7 +6,7 @@ import { ArrowLeftIcon } from '../public/icons/ArrowLeft'
 import { HelpIcon } from '../public/icons/Help'
 import * as S from '../styles/home'
 import validator from 'validator'
-import fetchBackend from '../services/api'
+import { fetchBackend } from '../services/api'
 
 export default function NewLink({
   initialValue = {},

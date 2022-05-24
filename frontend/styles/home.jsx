@@ -3,8 +3,8 @@ import styled from 'styled-components'
 export const ContainerLogin = styled.div`
   background: #ffffff;
 
-  width: 328px;
-  height: 296px;
+  height: 550px;
+  width: 335px;
 
   padding: 10px;
 
@@ -40,6 +40,18 @@ export const ContainerLogin = styled.div`
     color: #575757;
 
     width: 262px;
+  }
+
+  .buttonContainer {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: absolute;
+    bottom: 38px;
+    left: 0;
   }
 
   > div {

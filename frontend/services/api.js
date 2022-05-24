@@ -17,4 +17,16 @@ const fetchBackend = async ({ email, data, service = 'get' }) => {
   }
 }
 
-export default fetchBackend
+const fetchLogin = async ({ email, password }) => {
+  try {
+    const { data: response } = await api.post('/v1/saveforme/login', { email, password })
+
+    return response
+  } catch (error) {
+    Sentry.captureException(error)
+
+    throw error
+  }
+}
+
+export { fetchBackend, fetchLogin }

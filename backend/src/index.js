@@ -23,7 +23,7 @@ app.use(
     handler: () => {
       throw new TooManyRequestsError('To many request!')
     },
-  }),
+  })
 )
 app.use(express.urlencoded({ extended: true }))
 app.use(cors({ origin: '*' }))
