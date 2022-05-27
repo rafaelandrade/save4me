@@ -9,7 +9,7 @@ const { InternalServiceError } = require('errors-stack')
  */
 const handleUnmappedErrors = ({ res, capturedException }) => {
   const internalServiceError = new InternalServiceError(
-    `This is a internal server error, sentry captured exception with id ${capturedException}`,
+    `This is a internal server error, sentry captured exception with id ${capturedException}`
   )
 
   return res
