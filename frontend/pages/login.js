@@ -36,7 +36,7 @@ const RightIcon = ({ setInputType }) => {
   const component = coveredPassword ? <EyeCovered color={color} /> : <Eye color={color} />
 
   return (
-    <div style={style} onClick={coverageOrUncovered}>
+    <div id="show-password" style={style} onClick={coverageOrUncovered}>
       {component}
     </div>
   )
