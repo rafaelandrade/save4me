@@ -1,13 +1,11 @@
-//* middlewares/Validator.js
 const { InternalServiceError, BodyPropertyError } = require('errors-stack')
-//* Include joi to check error type
 
 const Validator = require('./validators')
 
-module.exports = function (validator) {
-  if (!validator) throw new Error("'Validator was not send!")
+module.exports = (validator) => {
+  if (!validator) throw new Error('Validator was not send!')
 
-  return async function (req, res, next) {
+  return async (req, _res, next) => {
     try {
       const validated = await Validator[validator].validateAsync(req.body)
       req.body = validated
