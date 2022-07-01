@@ -27,7 +27,7 @@ jobs:
         uses: "phips28/gh-action-bump-version@master"
         with:
           tag-prefix: ''
-          PACKAGEJSON_DIR: 'frontend'
+          PACKAGEJSON_DIR: 'frontend/'
         env:
           GITHUB_TOKEN: ${{ secrets.CLI_GITHUB_TOKEN }}
 
