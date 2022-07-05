@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "save4me",
   "short_name": "save4me",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "I’ll help you to never lose your links again.",
   "icons": {
     "16": "plugin/16x16.png",
@@ -31,7 +31,7 @@
       }
     }
   },
-  "permissions": ["storage", "identity", "identity.email"],
+  "permissions": ["storage"],
   "content_scripts": [
     {
       "matches": ["https://*/*", "http://*/*"],
