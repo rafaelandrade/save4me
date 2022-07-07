@@ -59,6 +59,8 @@ export default function Login({ setIsLogged = () => {}, setEmail = () => {} }) {
       setIsLogged(true)
       setLoading(false)
       setEmail(emailInput)
+
+      chrome?.storage?.local?.set({ email })
     } catch {
       setLoading(false)
     }
