@@ -11,13 +11,15 @@ const { create, verify } = require('../../../services/login')
  * @return {Promise<any>}
  */
 const login = async (req, res) => {
-  const { email, password } = req.body
   try {
+    const { email, password } = req.body
+
     logger.print({ severity: 'info', message: 'Initiation of login service...', event: 'loginController' })
     const user = await prisma.user.findUnique({ where: { email } })
 
     if (!user) {
       const response = await create({ email, password })
+
       return res.status(201).json(response)
     }
 
