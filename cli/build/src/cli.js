@@ -76,6 +76,10 @@ function writingManifestJson(manifest) {
     scripts: ['background.js'],
   }
   manifest.manifest_version = 2
+
+  delete manifest.host_permissions
+  delete manifest.action
+  delete manifest.key
 }
 
 function buildFrontend() {
