@@ -1,0 +1,28 @@
+{
+  "name": "build",
+  "version": "1.0.0",
+  "description": "A CLI to build firefox or chrome extension zip file",
+  "bin": {
+    "build": "bin/build-save4me",
+    "build-save4me": "bin/build-save4me"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "cli",
+    "build-save4me"
+  ],
+  "author": "save4me",
+  "license": "MIT",
+  "dependencies": {
+    "arg": "^5.0.2",
+    "esm": "^3.2.18",
+    "inquirer": "^6.2.2",
+    "listr": "^0.14.3",
+    "rxjs": "^7.5.5"
+  }
+}

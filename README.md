@@ -47,6 +47,14 @@ And then run the follow command:
 yarn install
 ```
 
+For one best experience run this command first anything
+
+```
+yarn start:cli
+```
+
+Now you can run `build-save4me` anywhere for build extension.
+
 After install all dependencies of the project, it's recommended to read the explanation of how
 to initiate in each project part:
 
