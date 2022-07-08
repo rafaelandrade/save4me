@@ -15,26 +15,26 @@ describe('[scrapper] Test case', () => {
   })
 
   it('Should return metadata of the website passed and site does not contain five icon', async () => {
-    const site = 'https://www.github.com'
+    const site = 'https://cloud.mongodb.com/'
 
     const metadata = await scrapper(site)
 
     expect(metadata).toEqual({
       description: expect.any(String),
-      image: 'https://github.com/fluidicon.png',
-      title: 'GitHub: Where the world builds software · GitHub',
+      image: 'https://cloud.mongodb.com//assets/images/global/favicon.ico',
+      title: 'MongoDB Cloud | MongoDB',
     })
   })
 
   it('Should return metadata of the github website', async () => {
-    const site = 'https://github.com'
+    const site = 'https://cloud.mongodb.com/'
 
     const metadata = await scrapper(site)
 
     expect(metadata).toEqual({
       description: expect.any(String),
-      image: 'https://github.com/fluidicon.png',
-      title: 'GitHub: Where the world builds software · GitHub',
+      image: 'https://cloud.mongodb.com//assets/images/global/favicon.ico',
+      title: 'MongoDB Cloud | MongoDB',
     })
   })
 
