@@ -50,7 +50,7 @@ yarn install
 For one best experience run this command first anything
 
 ```
-yarn start-cli
+yarn start:cli
 ```
 
 Now you can run `build-save4me` anywhere for build extension.

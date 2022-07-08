@@ -6,8 +6,8 @@
   ],
   "scripts": {
     "start": "cd backend && yarn start",
-    "start-frontend": "cd frontend && yarn start",
-    "start-cli": "cd cli/build && npm link"
+    "start:frontend": "cd frontend && yarn start",
+    "start:cli": "cd cli/build && npm link"
   },
   "contributors": [
     "Rafael Andrade <rafasouza@protonmail.com>",
