@@ -176,7 +176,7 @@ export async function cli(args) {
     {
       title: 'Updating version',
       task: () => upVersion(manifest, options),
-      skip: () => (!options.version ? 'Pass -- version to update version' : undefined),
+      skip: () => (!options.version ? 'Pass --version to update version' : undefined),
     },
     {
       title: 'Deleting existing manifest.json',
