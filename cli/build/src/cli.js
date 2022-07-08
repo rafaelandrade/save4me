@@ -72,13 +72,22 @@ async function promptForMissingOptions(options) {
 }
 
 function writingManifestJson(manifest) {
+  const icons = structuredClone(manifest.icons)
+
+  icons['32'] = icons['48']
+
   manifest.background = {
     scripts: ['background.js'],
   }
   manifest.manifest_version = 2
   manifest.page_action = {
     default_popup: 'index.html',
-    default_icon: manifest.icons,
+    default_icon: icons['32'],
+  }
+  manifest.browser_action = {
+    default_popup: 'index.html',
+    default_icon: icons['32'],
+    default_title: 'Save4Me',
   }
 
   delete manifest.host_permissions
