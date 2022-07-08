@@ -12,6 +12,9 @@ function parseArgumentsIntoOptions(rawArgs) {
       '--chrome': Boolean,
       '--firefox': Boolean,
       '--zip': Boolean,
+      '--version': Boolean,
+      '--minor': Boolean,
+      '--major': Boolean,
     },
     {
       argv: rawArgs.slice(2),
@@ -22,6 +25,9 @@ function parseArgumentsIntoOptions(rawArgs) {
     chrome: args['--chrome'],
     firefox: args['--firefox'],
     zip: args['--zip'] || null,
+    version: args['--version'],
+    minor: args['--minor'],
+    major: args['--major'],
   }
 }
 
@@ -102,6 +108,24 @@ function deleteExistingManifest() {
   }
 }
 
+function upVersion(manifest, options) {
+  if (!options.minor && !options.major) {
+    throw new Error('You must specify --minor or --major')
+  }
+
+  manifest.version = manifest.version.split('.')
+
+  if (options.minor) {
+    manifest.version[2] = Number(manifest.version[2]) + 1
+  }
+
+  if (options.major) {
+    manifest.version[0] = Number(manifest.version[0]) + 1
+  }
+
+  manifest.version = manifest.version.join('.')
+}
+
 export async function cli(args) {
   const options = parseArgumentsIntoOptions(args)
 
@@ -120,6 +144,11 @@ export async function cli(args) {
       title: 'Writing in manifest.json',
       task: () => writingManifestJson(manifest),
       skip: () => (browser === 'Chrome' ? 'Skipping writing for chrome' : undefined),
+    },
+    {
+      title: 'Updating version',
+      task: () => upVersion(manifest, options),
+      skip: () => (!options.version ? 'Pass -- version to update version' : undefined),
     },
     {
       title: 'Deleting existing manifest.json',
