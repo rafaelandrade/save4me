@@ -76,6 +76,14 @@ function writingManifestJson(manifest) {
     scripts: ['background.js'],
   }
   manifest.manifest_version = 2
+  manifest.page_action = {
+    default_popup: 'index.html',
+    default_icon: manifest.icons,
+  }
+
+  delete manifest.host_permissions
+  delete manifest.action
+  delete manifest.key
 }
 
 function buildFrontend() {
@@ -124,6 +132,17 @@ function upVersion(manifest, options) {
   }
 
   manifest.version = manifest.version.join('.')
+
+  const defaultManifest = JSON.parse(
+    fs.readFileSync(path.join(__dirname, '..', '..', '..', 'frontend/public/manifest.default.json'), 'utf-8')
+  )
+
+  defaultManifest.version = manifest.version
+
+  fs.writeFileSync(
+    path.join(__dirname, '..', '..', '..', 'frontend/public/manifest.default.json'),
+    JSON.stringify(defaultManifest, null, 2)
+  )
 }
 
 export async function cli(args) {
