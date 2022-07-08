@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "save4me",
   "short_name": "save4me",
-  "version": "1.0.4",
+  "version": "1.0.22",
   "description": "I will help you to never lose your links again.",
   "icons": {
     "16": "plugin/16x16.png",

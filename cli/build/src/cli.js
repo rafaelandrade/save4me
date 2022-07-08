@@ -72,7 +72,7 @@ async function promptForMissingOptions(options) {
 }
 
 function writingManifestJson(manifest) {
-  const icons = structuredClone(manifest.icons)
+  const icons = { ...manifest.icons }
 
   icons['32'] = icons['48']
 

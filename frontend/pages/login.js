@@ -54,13 +54,14 @@ export default function Login({ setIsLogged = () => {}, setEmail = () => {} }) {
     try {
       setLoading(true)
 
-      await fetchLogin({ email: emailInput, password })
+      const token = await fetchLogin({ email: emailInput, password })
 
       setIsLogged(true)
       setLoading(false)
       setEmail(emailInput)
 
-      chrome?.storage?.local?.set({ email })
+      chrome?.storage?.local?.set({ email: emailInput })
+      chrome?.storage?.local?.set({ token })
     } catch {
       setLoading(false)
     }
